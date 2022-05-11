@@ -1,6 +1,83 @@
 li.agendamento a{
-    color: #219F3B !important;
+    color: var(--color-primary-agendamento-00);
 }
 li.agendamento :before{
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+main.conteudo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.icon-title{
+    text-align: center;
+    margin: 50px auto;
+    
+}
+div.icon-title .title {
+    color: var(--color-primary-agendamento-00);
+    margin-top: 10px;
+}
+div.div-form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+div.div-form input, div.div-form button{
+    width: 350px;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 5px;
+}
+div.div-form input{
+    padding-left: 35px;
+    border: 1px solid #c0c0c0;
+}
+div.div-form button.btn-entrar {
+    background-color: var(--color-primary-agendamento-00);
+    color: var(--color-light-02);
+    border: none;
+    cursor: pointer;
+}
+div.div-form button.btn-entrar:hover {
+    background-color: var(--color-primary-agendamento-01)
+}
+div.div-form button.btn-cadastrar{
+    background-color: transparent;
+    color: var(--color-primary-agendamento-01);
+    border: 1px solid var(--color-primary-agendamento-02);
+    cursor: pointer;
+}
+div.div-form button.btn-cadastrar:hover{
+    border-color: var(--color-primary-agendamento-01);
+}
+
+div.div-form a {
+    color: var(--color-primary-contato-00);
+    text-decoration: none;
+}
+div.div-form a:hover {
+    text-decoration: underline;
+}
+
+div.div-form input[type='password'] {
+    background-image: url(./../images/lock.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position: 10px;
+}
+div.div-form input[type='text'] {
+    background-image: url(./../images/user.png);
+    background-repeat: no-repeat;
+    background-position-y: center;
+    background-position: 10px;
+}
+
+footer p {
+    text-align: center;
+    margin: 200px auto 20px auto;
+    color: #c0c0c0;
 }

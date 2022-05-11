@@ -1,8 +1,63 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100&display=swap');
+
+:root{
+
+    --font-default: 'Roboto', sans-serif;
+
+    /* cores primarias */
+
+    --color-primary-agendamento-00:#219F3B;
+    --color-primary-agendamento-01:#3C7D49;
+    --color-primary-agendamento-02: #64C978;
+    --color-primary-agendamento-03: #DFF3E3;
+
+    --color-primary-home-00: #0065AB;
+    --color-primary-home-01: #075185;
+    --color-primary-home-02: #009DD1;
+
+    --color-primary-cooperativas-00: #9F7741;
+    --color-primary-cooperativas-01: #8F5A11;
+    --color-primary-cooperativas-02: #D2A567;
+
+    --color-primary-institucional-00: #E22311;
+    --color-primary-institucional-01: #C11302;
+    --color-primary-institucional-02: #F9897E;
+
+    --color-primary-empresas-00: #F7D401;
+    --color-primary-empresas-01: #DCBD01;
+    --color-primary-empresas-02: #FFF19C;
+
+    --color-primary-duvidas-00: #734090;
+    --color-primary-duvidas-01: #57336C;
+    --color-primary-duvidas-02: #A182B2;
+
+    --color-primary-contato-00: #92867D;
+    --color-primary-contato-01: #6C6763;
+    --color-primary-contato-02: #C1C1C1;
+
+    /* cores secundarias */
+
+    --color-secundary-00: #5A5D67;
+    --color-secundary-01: #1D1F24;
+    --color-secundary-02: #979191;  
+
+    /* cores lights */
+
+    --color-light-00: #F7F8FC;
+    --color-light-01: #EDEFF8;
+    --color-light-02: #FFFFFF;
+
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--font-default);
 }
+
+/* header/menu */
 
 .header-site {
     width: 100%;
@@ -11,7 +66,6 @@
 .img-logo {
     padding: 30px 30px 50px 30px;
 }
-
 .ul-menu {
     display: flex;
     list-style: none;
@@ -26,7 +80,7 @@
 .menu-item a {
     text-decoration: none;
     display: block;
-    color: #92867D;
+    color: var(--color-primary-contato-00);
     font-size: 1.2em;
 }
 .menu-item a::before{
@@ -40,23 +94,23 @@
 }
 
 li.home a::before {
-    border-color: #0065AB;
+    border-color: var(--color-primary-home-00);
 }
 li.institucional a::before{
-    border-color: #E22311;
+    border-color: var(--color-primary-institucional-00);
 }
 li.cooperativas a::before{
-    border-color: #9F7741;
+    border-color: var(--color-primary-cooperativas-00);
 }
 li.empresas a::before{
-    border-color: #F7D401;
+    border-color: var(--color-primary-empresas-00);
 }
 li.agendamento a::before{
-    border-color: #219F3B;
+    border-color: var(--color-primary-agendamento-00);
 }
 li.duvidas a::before{
-    border-color: #734090;
+    border-color: var(--color-primary-duvidas-00);
 }
 li.contato a::before{
-    border-color: #92867D;
+    border-color: var(--color-primary-contato-00);
 }
