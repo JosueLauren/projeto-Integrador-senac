@@ -114,3 +114,11 @@ li.duvidas a::before{
 li.contato a::before{
     border-color: var(--color-primary-contato-00);
 }
+
+/* footer */
+
+footer p {
+    text-align: center;
+    margin: 200px auto 20px auto;
+    color: #c0c0c0;
+}

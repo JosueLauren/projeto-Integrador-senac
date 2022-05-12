@@ -47,19 +47,23 @@ div.div-form button.btn-entrar:hover {
 }
 div.div-form button.btn-cadastrar{
     background-color: transparent;
-    color: var(--color-primary-agendamento-01);
     border: 1px solid var(--color-primary-agendamento-02);
     cursor: pointer;
+}
+div.div-form button.btn-cadastrar a{
+    text-decoration: none;
+    color: var(--color-primary-agendamento-01);
 }
 div.div-form button.btn-cadastrar:hover{
     border-color: var(--color-primary-agendamento-01);
 }
 
-div.div-form a {
+div.div-form .trocar-senha-link {
     color: var(--color-primary-contato-00);
     text-decoration: none;
+    cursor: pointer;
 }
-div.div-form a:hover {
+div.div-form .trocar-senha-link:hover {
     text-decoration: underline;
 }
 
@@ -76,8 +80,3 @@ div.div-form input[type='text'] {
     background-position: 10px;
 }
 
-footer p {
-    text-align: center;
-    margin: 200px auto 20px auto;
-    color: #c0c0c0;
-}

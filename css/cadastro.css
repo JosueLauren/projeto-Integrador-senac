@@ -1,0 +1,83 @@
+li.agendamento a{
+    color: var(--color-primary-agendamento-00);
+}
+li.agendamento :before{
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+main.conteudo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.icon-title{
+    text-align: center;
+    margin: 50px auto;
+    
+}
+div.icon-title .title {
+    color: var(--color-primary-agendamento-00);
+    margin-top: 10px;
+}
+
+form.form-cadastro{
+    width: 70%;
+}
+.div-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+.div-inputs label {
+    font-weight: bold;
+    color: var(--color-secundary-00);
+}
+
+.div-inputs input {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #EDEFF8;;
+    box-shadow: 3px 3px 1px #EDEFF8;
+}
+.div-inputs input::placeholder{
+    color: #c0c0c0;
+}
+
+p.double-width{
+  grid-column: 1/3;
+}
+
+div.btns{
+    display: flex;
+    justify-content: flex-end;
+}
+button.btn-cancelar{
+    background-color: transparent;
+    color: var(--color-primary-agendamento-01);
+    border: 1px solid var(--color-primary-agendamento-02);
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+button.btn-cancelar:hover {
+    border-color: var(--color-primary-agendamento-01);
+}
+button.btn-salvar{
+    background-color: var(--color-primary-agendamento-00);
+    color: var(--color-light-02);
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+button.btn-salvar:hover {
+    background-color: var(--color-primary-agendamento-01)
+}
+
+
