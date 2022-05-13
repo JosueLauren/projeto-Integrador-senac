@@ -4,23 +4,6 @@ li.agendamento a{
 li.agendamento :before{
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
 }
-
-main.conteudo {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-div.icon-title{
-    text-align: center;
-    margin: 50px auto;
-    
-}
-div.icon-title .title {
-    color: var(--color-primary-agendamento-00);
-    margin-top: 10px;
-}
 div.div-form{
     display: flex;
     flex-direction: column;

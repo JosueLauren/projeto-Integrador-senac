@@ -115,6 +115,26 @@ li.contato a::before{
     border-color: var(--color-primary-contato-00);
 }
 
+/* conteudo principal */
+
+main.conteudo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+div.icon-title{
+    text-align: center;
+    margin: 50px auto;
+    
+}
+div.icon-title .title {
+    color: var(--color-primary-agendamento-00);
+    margin-top: 10px;
+}
+
 /* footer */
 
 footer p {
