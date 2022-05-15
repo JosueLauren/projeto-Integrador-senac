@@ -1,0 +1,128 @@
+li.agendamento a{
+    color: var(--color-primary-agendamento-00);
+}
+li.agendamento :before{
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.materiais-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.description-materiais {
+    color: var(--color-primary-contato-00);
+}
+
+.title-materiais {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+}
+
+.title-materiais p {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    width: 50%;
+    margin-left: 1px;
+    background-color: var(--color-primary-agendamento-00);
+    color: white;
+}
+.p-material{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.p-qtd{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.item-material{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    color: var(--color-primary-contato-00);
+}
+
+.radio-material {
+    background-color: var(--color-light-00);
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.radio-material input{
+    margin-right: 10px;
+}
+
+ .qtd-img-material{
+    background-color: var(--color-light-00);
+    width: 50%;
+    height: 104px;
+    margin-left: 1px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.qtd-img-material input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-light-01);
+    box-shadow: 3px 3px 1px var(--color-light-01);
+}
+
+.qtd-img-material img {
+    width: 61px;
+}
+
+.qtd-img-material input::placeholder {
+    color: var(--color-light-01);
+}
+
+div.btns{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px 0px;
+}
+button.btn-cancelar{
+    background-color: transparent;
+    color: var(--color-primary-agendamento-01);
+    border: 1px solid var(--color-primary-agendamento-02);
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+button.btn-cancelar:hover {
+    border-color: var(--color-primary-agendamento-01);
+}
+button.btn-salvar{
+    background-color: var(--color-primary-agendamento-00);
+    color: var(--color-light-02);
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+button.btn-salvar:hover {
+    background-color: var(--color-primary-agendamento-01)
+}
+
+
+
+
