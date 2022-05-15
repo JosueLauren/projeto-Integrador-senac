@@ -1,0 +1,75 @@
+li.agendamento a{
+    color: var(--color-primary-agendamento-00);
+}
+li.agendamento :before{
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.form-cooperativas {
+    width: 60%;
+}
+
+.div-inputs {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.div-inputs label {
+    font-weight: bold;
+    color: var(--color-secundary-00);
+}
+
+.div-inputs input, .div-inputs select {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid var(--color-light-01);
+    background-color: var(--color-light-01);
+    color: var(--color-secundary-00);
+}
+.select-cooperativa {
+    border: 1px solid var(--color-light-01);
+    box-shadow: 3px 3px 1px var(--color-light-01);
+    background-color: #fff !important;
+}
+
+.title-inputs, hr, .mapa{
+    grid-column: 1/4;
+    color: var(--color-primary-contato-02);
+    margin: 10px 0px;
+}
+
+.periodo, .cidade {
+    grid-column: 2/4;
+}
+
+div.btns{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-voltar {
+    background-color: transparent;
+    color: var(--color-primary-agendamento-01);
+    border: 1px solid var(--color-primary-agendamento-02);
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px 15px;
+}
+button.btn-voltar:hover {
+    border-color: var(--color-primary-agendamento-01);
+}
+button.btn-confirmar{
+    background-color: var(--color-primary-agendamento-00);
+    color: var(--color-light-02);
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+button.btn-confirmar:hover {
+    background-color: var(--color-primary-agendamento-01)
+}
+

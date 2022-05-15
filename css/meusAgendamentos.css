@@ -1,0 +1,46 @@
+li.agendamento a{
+    color: var(--color-primary-agendamento-00);
+}
+li.agendamento :before{
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.agendamentos { 
+    width: 60%;
+}
+
+.agendamento-status{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 5px;
+    height: 80px;
+    width: 488px;
+    color: var(--color-primary-contato-00);
+    background-color: var(--color-primary-agendamento-03);
+    font-weight: 400;
+    box-shadow: 0px 3px 1px var(--color-light-01);
+    margin: auto;
+    
+}
+
+.div-btn-voltar {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.btn-voltar button {
+    background-color: var(--color-primary-agendamento-00);
+    color: var(--color-light-02);
+    border: none;
+    cursor: pointer;
+    padding: 10px 15px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+
+.btn-voltar button:hover {
+    background-color: var(--color-primary-agendamento-01)
+}

@@ -33,7 +33,7 @@ div.div-form button.btn-cadastrar{
     border: 1px solid var(--color-primary-agendamento-02);
     cursor: pointer;
 }
-div.div-form button.btn-cadastrar a{
+div.div-form a button.btn-cadastrar {
     text-decoration: none;
     color: var(--color-primary-agendamento-01);
 }
