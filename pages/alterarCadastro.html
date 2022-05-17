@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./../css/cadastro.css">
     <title>Alterar cadastro</title>
 </head>
-<body>
+<body onload="buscarDadosEmpresa()">
     <header class="header-site">
         <img class="img-logo" src="./../images/logo (1).png" alt="logo-image"> 
         <nav class="menu">
@@ -28,7 +28,7 @@
             <img class="icon" src="./../images/icon-alterar cadastro.png" alt="icon-agendamento">
             <h3 class="title">ALTERAR CADASTRO</h3>
         </div>
-        <form action="#" class="form-cadastro">
+        <form action="#" class="form-cadastro-update">
             <div class="div-inputs">
                 <p class="double-width"><label for="">Empresa*:</label> <br> <input  type="text" id="input-empresa" placeholder="Digite aqui..."></p>
                 <p><label for="">CNPJ*:</label> <br><input type="text" id="input-cnpj" placeholder="Digite aqui..."></p>
@@ -46,12 +46,22 @@
             </div>
             <div class="btns">    
                 <a href="./dashboard.html"><button type="button" class="btn-cancelar">CANCELAR</button></a>
-                <button type="button" class="btn-salvar">SALVAR</button>
+                <button type="button" class="btn-salvar" onclick="atualizardadosEmpresa()">SALVAR</button>
             </div>
         </form>
      </main>
      <footer>
         <p><img src="./../images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
      </footer>
+
+         <!-- Recursos do firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+
+
+    <!-- Nosso javascript -->
+    <script src="./../js/firebase.js"></script>
+    <script src="./../js/script.js"></script>
 </body>
 </html>

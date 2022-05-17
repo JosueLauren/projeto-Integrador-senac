@@ -29,9 +29,9 @@
             <h3 class="title">AGENDAMENTO</h3>
         </div>
         <div class="div-form">
-            <input type="text" placeholder="Login">
-            <input type="password" placeholder="Senha">
-            <button class="btn-entrar">Entrar</button>
+            <input type="text" placeholder="Login" id="input-auth-email">
+            <input type="password" placeholder="Senha" id="input-auth-senha">
+            <button class="btn-entrar" onclick="authEmpresa()">Entrar</button>
             <a class="trocar-senha-link href="#">Esqueci minha senha</a>
             <a href="./cadastro.html"><button class="btn-cadastrar">CADASTRE-SE GRÁTIS</button></a>
         </div>
@@ -39,5 +39,15 @@
     <footer>
         <p><img src="./../images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
     </footer>
+
+    <!-- Recursos do firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+
+
+    <!-- Nosso javascript -->
+    <script src="./../js/firebase.js"></script>
+    <script src="./../js/script.js"></script>
 </body>
 </html>

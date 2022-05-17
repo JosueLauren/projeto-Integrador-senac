@@ -23,6 +23,9 @@
                 <li class="menu-item duvidas"><a href="#">dúvidas</a></li>
                 <li class="menu-item contato"><a href="#">contato</a></li>
             </ul>
+            <div class="signout-div">
+                <button class="signout-btn" onclick="signout()">Signout</button>
+            </div>
         </nav>
      </header>
      <main class="conteudo">
@@ -59,5 +62,15 @@
      <footer>
         <p><img src="./../images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
      </footer>
+
+              <!-- Recursos do firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+
+
+    <!-- Nosso javascript -->
+    <script src="./../js/firebase.js"></script>
+    <script src="./../js/script.js"></script>
 </body>
 </html>
