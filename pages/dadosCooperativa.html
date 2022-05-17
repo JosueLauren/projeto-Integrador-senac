@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./../css/dadosCooperativa.css">
     <title>Dados da Cooperativa</title>
 </head>
-<body>
+<body onload="buscarDadosCooperativa()">
     <header class="header-site">
         <img class="img-logo" src="./../images/logo (1).png" alt="logo-image"> 
         <nav class="menu">
@@ -32,19 +32,17 @@
             <form action="#" class="form-cooperativas">
                 <div class="div-inputs">
                     <p class="title-inputs">Dados da Cooperativa</p>
-                    <p ><label for="">Cooperativa*:</label> <br> <select name="" id="" class="select-cooperativa"> 
-                        <option value="">Coomperativa Glicério</option>
-                        <option value="">Recicla Real</option>
+                    <p ><label for="">Cooperativa*:</label> <br> <select onchange="selecionarCooperativa(event)" id="id-select-cooperativa" class="select-cooperativa"> 
                     </select> </p>
-                    <p><label for="">Endereço:</label><br> <input type="text" name="" id="" readonly></p>
-                    <p><label for="">CEP:</label><br> <input type="text" name="" id="" readonly></p>
+                    <p><label for="">Endereço:</label><br> <input type="text" name="" id="endereço" readonly></p>
+                    <p><label for="">CEP:</label><br> <input type="text" name="" id="cep" readonly></p>
 
-                    <p><label for="">UF:</label><br> <input type="text" name="" id="" ></p>
-                    <p class="cidade"><label for="">Cidade:</label><br> <input type="text" name="" id="" readonly></p>
+                    <p><label for="">UF:</label><br> <input type="text" name="" id="uf" ></p>
+                    <p class="cidade"><label for="">Cidade:</label><br> <input type="text" name="" id="cidade" readonly></p>
                     <hr>
                     <p class="title-inputs">Agendamento</p>
-                    <p><label for="">Data*:</label><br> <input type="date" name="" id=""></p>
-                    <p class="periodo"><label for="">Período da Coleta</label>:</label><br> <select name="" id="">
+                    <p><label for="">Data*:</label><br> <input type="date" name="" id="data"></p>
+                    <p class="periodo"><label for="">Período da Coleta</label>:</label><br> <select name="" id="periodo">
                         <option value="">Das 08:00 às 10:00 horas</option>
                         <option value="">Das 10:00 às 12:00 horas</option>
                     </select> </p>
@@ -56,12 +54,22 @@
                 </div>
                 <div class="btns">
                     <a href="./materiais.html"><button class="btn-voltar" type="button">VOLTAR</button></a>
-                    <button class="btn-confirmar" type="button">CONFIRMAR</button>
+                    <button class="btn-confirmar" type="button" onclick="novoAgendamento()">CONFIRMAR</button>
                 </div>
             </form>
      </main>
      <footer>
         <p><img src="./../images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
      </footer>
+
+                   <!-- Recursos do firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+          
+          
+    <!-- Nosso javascript -->
+    <script src="./../js/firebase.js"></script>
+    <script src="./../js/script.js"></script>
 </body>
 </html>

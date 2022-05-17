@@ -26,6 +26,7 @@ form.form-cadastro{
     border-radius: 5px;
     border: 1px solid var(--color-light-01);
     box-shadow: 3px 3px 1px var(--color-light-01);
+    color: var(--color-secundary-00)
 }
 .div-inputs input::placeholder{
     color: #c0c0c0;
