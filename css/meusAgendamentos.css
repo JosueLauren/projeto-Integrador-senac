@@ -21,9 +21,7 @@ li.agendamento :before{
     font-weight: 400;
     box-shadow: 0px 3px 1px var(--color-light-01);
     margin: 10px auto;
-    
 }
-
 .div-btn-voltar {
     margin-top: 30px;
     width: 100%;
@@ -43,4 +41,16 @@ li.agendamento :before{
 
 .btn-voltar button:hover {
     background-color: var(--color-primary-agendamento-01)
+}
+
+.btn-verMais {
+    background-color: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    color: var(--color-primary-agendamento-00);
+    
+}
+
+.btn-verMais:hover{
+    text-decoration: underline;
 }

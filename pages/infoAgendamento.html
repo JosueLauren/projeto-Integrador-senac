@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./../css/style.css">
     <link rel="stylesheet" href="./../css/dadosCooperativa.css">
-    <title>Dados da Cooperativa</title>
+    <link rel="stylesheet" href="./../css/meusAgendamentos.css">
+    <link rel="stylesheet" href="./../css/materiais.css">
+    <title>informações do agendamento</title>
 </head>
-<body onload="buscarDadosCooperativa()">
+<body onload="buscarAgendamentoUnico()">
     <header class="header-site">
         <img class="img-logo" src="./../images/logo (1).png" alt="logo-image"> 
         <nav class="menu">
@@ -25,49 +27,52 @@
      </header>
      <main class="conteudo">
         <div class="icon-title">
-            <img class="icon" src="./../images/icon materiais.png" alt="icon-agendamento">
-            <h3 class="title">NOVOS AGENDAMENTOS</h3><br>
-            <p></p>
+            <img class="icon" src="./../images/icon-meus-agendamentos.png" alt="icon-agendamento">
+            <h3 class="title">PROTOCOLO DE AGENDAMENTO</h3><br>
+            <div class="agendamento-status">
+                 <p id="num-proto" style="font-weight: bold;"></p>
+            </div>
         </div>
             <form action="#" class="form-cooperativas">
                 <div class="div-inputs">
                     <p class="title-inputs">Dados da Cooperativa</p>
-                    <p ><label for="">Cooperativa*:</label> <br> <select onchange="selecionarCooperativa(event)" id="id-select-cooperativa" class="select-cooperativa"> 
+                    <p ><label for="">Cooperativa*:</label> <br> <select readonly disabled id="id-select-cooperativa" class="select-cooperativa"> 
+                        <option id="option-coop"></option>
                     </select> </p>
                     <p><label for="">Endereço:</label><br> <input type="text" name="" id="endereço" readonly disabled></p>
-                    <p><label for="">CEP:</label><br> <input type="text" name="" id="cep" readonly disabled></p>
+                    <p><label for="">CEP:</label><br> <input type="text" name="" id="cep" readonly disabled ></p>
 
-                    <p><label for="">UF:</label><br> <input type="text" name="" id="uf" readonly disabled></p>
+                    <p><label for="">UF:</label><br> <input type="text" name="" id="uf" readonly disabled ></p>
                     <p class="cidade"><label for="">Cidade:</label><br> <input type="text" name="" id="cidade" readonly disabled></p>
                     <hr>
                     <p class="title-inputs">Agendamento</p>
-                    <p><label for="">Data*:</label><br> <input type="date" name="" id="data"></p>
-                    <p class="periodo"><label for="">Período da Coleta</label>:</label><br> <select name="" id="periodo">
-                        <option value="">Das 08:00 às 10:00 horas</option>
-                        <option value="">Das 10:00 às 12:00 horas</option>
+                    <p><label for="">Data*:</label><br> <input type="date" name="" id="data" readonly disabled ></p>
+                    <p class="periodo"><label for="">Período da Coleta</label>:</label><br> <select name="" id="periodo" readonly disabled >
+                        <option id="option-periodo" value=""></option> 
                     </select> </p>
                     <hr>
-                    <p class="title-inputs">Mapa</p>
-                    <div class="mapa"> 
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2586.0276431217267!2d-46.65842845076443!3d-23.561425898828592!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1652634304752!5m2!1spt-BR!2sbr" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
-                <div class="btns">
-                    <a href="./materiais.html"><button class="btn-voltar" type="button">VOLTAR</button></a>
-                    <button class="btn-confirmar" type="button" onclick="novoAgendamento()">CONFIRMAR</button>
                 </div>
             </form>
+            <div class="materiais-container" style="margin-top: 20px;">
+                <div class="title-materiais" >
+                    <p class="p-material">Material</p>
+                    <p class="p-qtd">Quantidade</p>
+                </div>
+            </div>
+            <div class="btns" style="margin-top: 20px; width: 60%;">
+                <a href="./meusAgendamentos.html"><button class="btn-voltar" type="button">VOLTAR</button></a>
+            </div>
      </main>
      <footer>
         <p><img src="./../images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
-     </footer>
+    </footer>
 
-                   <!-- Recursos do firebase -->
+     <!-- Recursos do firebase -->
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
-          
-          
+                            
+                            
     <!-- Nosso javascript -->
     <script src="./../js/firebase.js"></script>
     <script src="./../js/script.js"></script>

@@ -416,7 +416,10 @@ function buscarDadosCooperativa(){
         dbFirestore.doc(firebase.auth().currentUser.uid).collection('agendamentos').get()
         .then(result => {
             result.forEach(doc =>{
-                renderAgendamentos(doc.data())
+                renderAgendamentos(doc.data(), doc.id)
+
+                // console.log(doc.id)
+                
             })
         }).catch(err => {
             console.log(err)
@@ -424,7 +427,7 @@ function buscarDadosCooperativa(){
     }, 1000)
  }
 
- function renderAgendamentos(agendamento){
+ function renderAgendamentos(agendamento, id){
      let agendamentosDIV = document.querySelector('.agendamentos')
 
      let agendamentoStatusDIV = document.createElement('div')
@@ -442,7 +445,89 @@ function buscarDadosCooperativa(){
      let pCoopetativa = document.createElement('P')
      pCoopetativa.innerText = `Cooperativa: ${agendamento.cooperativa.nome}`
      agendamentoStatusDIV.appendChild(pCoopetativa)
+
+     let btnVerMais = document.createElement('button')
+     btnVerMais.innerText = 'Ver mais'
+     btnVerMais.setAttribute('onclick','setarIdAgendamentoNaSession(event)')
+     btnVerMais.setAttribute('class','btn-verMais')
+     btnVerMais.setAttribute('data-idAgendamento', id)
+
+     agendamentoStatusDIV.appendChild(btnVerMais)
     
     agendamentosDIV.appendChild(agendamentoStatusDIV)
  }
 
+ function setarIdAgendamentoNaSession(event){
+
+    let valueIdAgendamento = event.target.getAttribute('data-idAgendamento')
+    window.sessionStorage.setItem('id-Agendamento', valueIdAgendamento)
+    location.assign("http://127.0.0.1:5500/pages/infoAgendamento.html");
+ }
+
+
+ function buscarAgendamentoUnico(){
+
+  let idAgendamento = window.sessionStorage.getItem("id-Agendamento")
+
+    setTimeout(() => {
+        dbFirestore.doc(firebase.auth().currentUser.uid).collection('agendamentos').doc(idAgendamento).get()
+        .then(result => {
+                renderAgendamentoUnico(result.data())
+        }).catch(err => {
+            console.log(err)
+        })
+    }, 1000)
+ }
+
+ function renderAgendamentoUnico(agendamento){
+    document.querySelector("#num-proto").innerText = 'PROTOCOLO: ' + agendamento.protocolo
+    document.querySelector('#endereço').value = agendamento.cooperativa.endereço
+    document.querySelector('#cep').value = agendamento.cooperativa.cep
+    document.querySelector('#uf').value = agendamento.cooperativa.uf
+    document.querySelector('#cidade').value = agendamento.cooperativa.cidade
+    document.querySelector("#option-coop").innerText = agendamento.cooperativa.nome
+    document.querySelector("#data").value = agendamento.data
+    document.querySelector("#option-periodo").innerText = agendamento.periodo
+    
+    let chaves = Object.keys(agendamento.materiais)
+    let valores = Object.values(agendamento.materiais)
+
+    let StringMateriais = ''
+
+    for(let i = 0; i < chaves.length; i++){
+        
+        StringMateriais += `
+
+            <div class='item-material'> 
+                <div class='radio-material'>
+                    <input type='radio' value=${chaves[i]} readonly disabled checked/>
+                    <label>${chaves[i]}</label>
+                </div>
+                <div class='qtd-img-material'> 
+                    <img class='img' src='./../images/${InserirImage(chaves[i])}' />
+                    <div class='qtd-material' style='margin-left: 20px'> 
+                        <label>Quantidade:</label></br>
+                        <input type='number' value=${valores[i]} readonly disabled/>
+                    </div>
+                </div>
+            </div>
+
+        `
+    }
+
+    document.querySelector('.materiais-container').innerHTML += StringMateriais
+ }
+
+
+ function InserirImage(material) {
+
+    if(material === 'celular') {
+        return 'celular-icon.png'
+    } else if(material === 'papelao') {
+        return 'img-papelao.png'
+    } else if(material === 'pneu') {
+        return 'pneu-icon.png'
+    } else {
+        return 'lixo-icon.png'
+    }
+ }
