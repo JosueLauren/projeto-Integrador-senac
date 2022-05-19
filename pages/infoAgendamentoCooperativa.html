@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/style.css">
+    <link rel="stylesheet" href="./../css/dadosCooperativa.css">
+    <link rel="stylesheet" href="./../css/meusAgendamentos.css">
+    <link rel="stylesheet" href="./../css/materiais.css">
+    <title>informações do agendamento</title>
+</head>
+<body onload="buscarAgendamentoUnico()">
+    <header class="header-site">
+        <img class="img-logo" src="./../images/logo (1).png" alt="logo-image"> 
+        <nav class="menu">
+            <ul class="ul-menu">
+                <li class="menu-item home"><a href="#">home</a></li>
+                <li class="menu-item institucional"><a href="#">institucional</a></li>
+                <li class="menu-item cooperativas"><a href="#">cooperativas</a></li>
+                <li class="menu-item empresas"><a href="#">empresas</a></li>
+                <li class="menu-item agendamento"><a href="#">agendamento</a></li>
+                <li class="menu-item duvidas"><a href="#">dúvidas</a></li>
+                <li class="menu-item contato"><a href="#">contato</a></li>
+            </ul>
+        </nav>
+     </header>
+     <main class="conteudo">
+        <div class="icon-title">
+            <img class="icon" src="./../images/icon-cooperativas.png" alt="icon-agendamento">
+            <h3 class="title" style="color: var(--color-primary-cooperativas-01) ;">PROTOCOLO DE AGENDAMENTO</h3><br>
+            <div class="agendamento-status" style="background-color:var(--color-primary-cooperativas-02);">
+                 <p id="num-proto" style="font-weight: bold; color: var(--color-primary-cooperativas-01);"></p>
+            </div>
+        </div>
+            <form action="#" class="form-cooperativas">
+                <div class="div-inputs">
+                    <p class="title-inputs">Dados do Requerente</p>
+                    <p ><label for="">Requerente*:</label> <br> <select readonly disabled id="id-select-cooperativa" class="select-cooperativa"> 
+                        <option id="option-coop"></option>
+                    </select> </p>
+                    <p><label for="">Endereço:</label><br> <input type="text" name="" id="endereço" readonly disabled></p>
+                    <p><label for="">CEP:</label><br> <input type="text" name="" id="cep" readonly disabled ></p>
+
+                    <p><label for="">Telefone:</label><br> <input type="text" name="" id="telefone" readonly disabled ></p>
+                    <p class="cidade"><label for="">CNPJ:</label><br> <input type="text" name="" id="cnpj" readonly disabled></p>
+                    <hr>
+                    <p class="title-inputs">Agendamento</p>
+                    <p><label for="">Data*:</label><br> <input type="date" name="" id="data" readonly disabled ></p>
+                    <p class="periodo"><label for="">Período da Coleta</label>:</label><br> <select name="" id="periodo" readonly disabled >
+                        <option id="option-periodo" value=""></option> 
+                    </select> </p>
+                    <hr>
+                </div>
+            </form>
+            <div class="materiais-container" style="margin-top: 20px;">
+                <div class="title-materiais" >
+                    <p class="p-material">Material</p>
+                    <p class="p-qtd">Quantidade</p>
+                </div>
+            </div>
+            <div class="btns" style="margin-top: 20px; width: 60%;">
+                <button onclick="atualizarStatus()"  style="border-color: var(--color-primary-cooperativas-01); color: var(--color-primary-cooperativas-01); margin-right: 10px;" class="btn-voltar" type="button">Atualizar Status</button>
+                <a href="./agendamentosCooperativas.html"><button  style="border-color: var(--color-primary-cooperativas-01); color: var(--color-primary-cooperativas-01);" class="btn-voltar" type="button">VOLTAR</button></a>
+            </div>
+     </main>
+     <footer>
+        <p><img src="./../images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
+    </footer>
+
+     <!-- Recursos do firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+                            
+                            
+    <!-- Nosso javascript -->
+    <script src="./../js/firebase.js"></script>
+    <script src="./../js/scriptCooperativa.js"></script>
+</body>
+</html>

@@ -1,10 +1,10 @@
 // Referência ao Cloud Firestore
-var dbFirestore = firebase.firestore().collection('empresas')
+var dbFirestore = firebase.firestore().collection('cooperativas')
 
 // Função para cadastrar uma nova empresa
-function cadastrarEmpresas(){
+function cadastrarCooperativas(){
     
-    let inputEmpresa = document.querySelector('#input-empresa')
+    let inputCooperativa = document.querySelector('#input-cooperativa')
     let inputCnpj = document.querySelector('#input-cnpj')
     let inputEndereço = document.querySelector('#input-endereço')
     let inputCep= document.querySelector('#input-cep')
@@ -15,9 +15,9 @@ function cadastrarEmpresas(){
     let inputSenha = document.querySelector('#input-senha')
     let inputConfirmSenha = document.querySelector('#input-confirmaSenha')
 
-    if(inputEmpresa.value.trim() == ''){
-        alert('Campo Empresa obrigatório')
-        inputEmpresa.focus()
+    if(inputCooperativa.value.trim() == ''){
+        alert('Campo Cooperativa obrigatório')
+        inputCooperativa.focus()
         return
     }
 
@@ -81,8 +81,8 @@ function cadastrarEmpresas(){
         return 
     }
 
-    let DadosEmpresa = {
-        nome: inputEmpresa.value,
+    let DadosCooperativa = {
+        Nome: inputCooperativa.value,
         CNPJ: inputCnpj.value,
         Endereço: inputEndereço.value,
         CEP: inputCep.value,
@@ -94,24 +94,21 @@ function cadastrarEmpresas(){
     }
     
 
-    firebase.auth().createUserWithEmailAndPassword(DadosEmpresa.Email, DadosEmpresa.Senha)
+    firebase.auth().createUserWithEmailAndPassword(DadosCooperativa.Email, DadosCooperativa.Senha)
             .then(() =>{
-                    dbFirestore.doc(firebase.auth().currentUser.uid).set(DadosEmpresa)
+                    dbFirestore.doc(firebase.auth().currentUser.uid).set(DadosCooperativa)
                     .then(() => {
                         alert('Cadastrado com sucesso!')
-                        location.assign("http://127.0.0.1:5500/pages/dashboard.html");
+                        location.assign("http://127.0.0.1:5500/pages/dashboardCooperativas.html");
                     })
                     .catch(erro => console.log(erro))
                     
                 })
             .catch(err => alert('Erro ao cadastrar ' + err))
-
-   
 }
 
-
-// Função logar e authenticar a Empresa
-function authEmpresa(){
+// Função logar e authenticar a Cooperativa
+function authCooperativa(){
     let inputEmail = document.querySelector('#input-auth-email')
     let inputSenha = document.querySelector('#input-auth-senha')
 
@@ -123,26 +120,25 @@ function authEmpresa(){
     firebase.auth().signInWithEmailAndPassword(inputEmail.value, inputSenha.value)
         .then(result => {
             alert('Logado com sucesso')
-            location.assign("http://127.0.0.1:5500/pages/dashboard.html");
+            location.assign("http://127.0.0.1:5500/pages/dashboardCooperativas.html");
         })
         .catch(error => alert('Login não autorizado') )
 }
 
 
-// Função de deslogar Empresa
+// Função de deslogar Cooperativa
 function signout(){
-  firebase.auth().signOut()
-        .then(() => {
-            location.assign("http://127.0.0.1:5500/pages/login.html");
-        })
-        .catch(function (error) {
-        console.log('Falha ao sair da conta: ', error)
-     })
-}
+    firebase.auth().signOut()
+          .then(() => {
+              location.assign("http://127.0.0.1:5500/pages/loginCooperativa.html");
+          })
+          .catch(function (error) {
+          console.log('Falha ao sair da conta: ', error)
+       })
+  }
 
-
-// Função que centraliza e trata a autenticação
-firebase.auth().onAuthStateChanged(function (user) {
+  // Função que centraliza e trata a autenticação
+    firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       console.log('logado')
     
@@ -152,36 +148,36 @@ firebase.auth().onAuthStateChanged(function (user) {
   })
 
 
+  function buscarDadosCooperativa(){
+    setTimeout(() => {
+         dbFirestore.doc(firebase.auth().currentUser.uid).get()
+         .then(doc => {
+             if(doc.exists) {
+                 carregarInputs(doc.data())
+             }
+         }).catch(err => {
+             console.log(err)
+         })
+    }, 1000)
+ }
+ 
+ function carregarInputs(dados){
+     document.querySelector('#input-cooperativa').value = dados.Nome
+     document.querySelector('#input-cnpj').value = dados.CNPJ
+     document.querySelector('#input-endereço').value = dados.Endereço
+     document.querySelector('#input-cep').value = dados.CEP
+     document.querySelector('#input-uf').value = dados.UF
+     document.querySelector('#input-municipio').value = dados.Municipio
+     document.querySelector('#input-tel').value = dados.Telefone
+     document.querySelector('#input-email').value = dados.Email
+     document.querySelector('#input-senha').value = dados.Senha
+     document.querySelector('#input-confirmaSenha').value = dados.Senha
+ 
+ }
 
-function buscarDadosEmpresa(){
-   setTimeout(() => {
-        dbFirestore.doc(firebase.auth().currentUser.uid).get()
-        .then(doc => {
-            if(doc.exists) {
-                carregarInputs(doc.data())
-            }
-        }).catch(err => {
-            console.log(err)
-        })
-   }, 1000)
-}
 
-function carregarInputs(dados){
-    document.querySelector('#input-empresa').value = dados.nome
-    document.querySelector('#input-cnpj').value = dados.CNPJ
-    document.querySelector('#input-endereço').value = dados.Endereço
-    document.querySelector('#input-cep').value = dados.CEP
-    document.querySelector('#input-uf').value = dados.UF
-    document.querySelector('#input-municipio').value = dados.Municipio
-    document.querySelector('#input-tel').value = dados.Telefone
-    document.querySelector('#input-email').value = dados.Email
-    document.querySelector('#input-senha').value = dados.Senha
-    document.querySelector('#input-confirmaSenha').value = dados.Senha
-
-}
-
-function atualizardadosEmpresa(){
-    let inputEmpresa = document.querySelector('#input-empresa')
+ function atualizardadosCooperativa(){
+    let inputCooperativa = document.querySelector('#input-cooperativa')
     let inputCnpj = document.querySelector('#input-cnpj')
     let inputEndereço = document.querySelector('#input-endereço')
     let inputCep= document.querySelector('#input-cep')
@@ -192,9 +188,9 @@ function atualizardadosEmpresa(){
     let inputSenha = document.querySelector('#input-senha')
     let inputConfirmSenha = document.querySelector('#input-confirmaSenha')
 
-    if(inputEmpresa.value.trim() == ''){
-        alert('Campo Empresa obrigatório')
-        inputEmpresa.focus()
+    if(inputCooperativa.value.trim() == ''){
+        alert('Campo Cooperativa obrigatório')
+        inputCooperativa.focus()
         return
     }
 
@@ -258,8 +254,8 @@ function atualizardadosEmpresa(){
         return 
     }
 
-    let DadosEmpresa = {
-        nome: inputEmpresa.value,
+    let DadosCooperativa = {
+        nome: inputCooperativa.value,
         CNPJ: inputCnpj.value,
         Endereço: inputEndereço.value,
         CEP: inputCep.value,
@@ -270,13 +266,13 @@ function atualizardadosEmpresa(){
         Senha: inputSenha.value
     }
 
-    dbFirestore.doc(firebase.auth().currentUser.uid).set(DadosEmpresa)
+    dbFirestore.doc(firebase.auth().currentUser.uid).set(DadosCooperativa)
     .then(() => {
        const user = firebase.auth().currentUser
        user.updatePassword(inputSenha.value)
             .then(() => {
                 alert('Atualizado com sucesso!')
-                location.assign("http://127.0.0.1:5500/pages/dashboard.html");
+                location.assign("http://127.0.0.1:5500/pages/dashboardCooperativas.html");
             }).catch(error => {
                 console.log(error)
             })
@@ -285,172 +281,7 @@ function atualizardadosEmpresa(){
 
 }
 
-function definirMateriais(){
-
-    let todosInputsRadio = document.querySelectorAll('input[type=radio]')
-    let qtdInputsChecados = 0
-
-    todosInputsRadio.forEach(input => {
-        if(input.checked) qtdInputsChecados++
-    })
-
-    if(qtdInputsChecados === 0){
-        alert('Insira algum tipo de material')
-        return
-    }
-    
-    let inputsChecados = document.querySelectorAll('input[type=radio]:checked') 
-    let materiaisSlecionados = {}
-    let qtdMaterialVazia = false
-
-    inputsChecados.forEach(input => {
-        let nameMaterial = input.value
-        let inputQTD = document.querySelector(`input[name=${nameMaterial}]`)
-        
-
-        if(inputQTD.value.trim() == '') qtdMaterialVazia = true
-
-        materiaisSlecionados[nameMaterial] = inputQTD.value
-        
-    })
-
-    if(qtdMaterialVazia) {
-        alert('Informe a quantidade dos materiais!')
-        return
-    }
-
-    window.sessionStorage.setItem('materiais', JSON.stringify(materiaisSlecionados))
-    location.assign("http://127.0.0.1:5500/pages/dadosCooperativa.html")
-}
-
-function buscarDadosCooperativa(){
-    setTimeout(() => {
-        firebase.firestore().collection('cooperativas').get()
-         .then(list => {
-               carregarNomeCooperativa(list)
-             
-         }).catch(err => {
-             console.log(err)
-         })
-    }, 1000)
- }
- 
- function carregarNomeCooperativa(listCooperativas){
-
-    let selectCooperativas = document.querySelector('#id-select-cooperativa')
-        listCooperativas.forEach(doc => {
-
-        let option =  document.createElement('option')
-        option.innerText = doc.data().Nome
-        option.setAttribute('data-id', doc.id)
-        selectCooperativas.appendChild(option)
-    })
-
-        // console.log(selectCooperativas)
- }
-
- function selecionarCooperativa(event) {
-   let idCooperativa = event.target.options[event.target.selectedIndex].getAttribute('data-id')
-    firebase.firestore().collection('cooperativas').doc(idCooperativa).get()
-         .then(doc => {
-               carregarInputsCooperativa(doc.data(), idCooperativa)
-         }).catch(err => {
-             console.log(err)
-         })
- }
-
- function carregarInputsCooperativa(doc, id){
-    document.querySelector('#endereço').value = doc.Endereço
-    document.querySelector('#cep').value = doc.CEP
-    document.querySelector('#uf').value = doc.UF
-    document.querySelector('#cidade').value = doc.Municipio
-
-
-    dbFirestore.doc(firebase.auth().currentUser.uid).get()
-    .then(doc => {
-        if(doc.exists) {
-           let infoEmpresaEIdCooperativa = {
-               nome:  doc.data().nome,
-               endereço:  doc.data().Endereço,
-               telefone:  doc.data().Telefone,
-               cep:  doc.data().CEP,
-               cnpj:  doc.data().CNPJ,
-               idEmpresa: doc.id,
-               idCooperativa: id
-           }
-
-           window.sessionStorage.setItem('infoEmpresaEIdCooperativa', JSON.stringify(infoEmpresaEIdCooperativa))
-        }
-    }).catch(err => {
-        console.log(err)
-    })
- }
-
- function novoAgendamento(){
-    let endereço = document.querySelector('#endereço').value
-    let cep = document.querySelector('#cep').value
-    let uf = document.querySelector('#uf').value
-    let cidade = document.querySelector('#cidade').value
-    let data = document.querySelector('#data').value
-    let nome = document.querySelector("#id-select-cooperativa").value
-    let periodo = document.querySelector("#periodo")
-
-    let conteudoPeriodo = periodo.options[periodo.selectedIndex].textContent
-
-    if(endereço == '' || cep == '' || uf == '' || cidade == '' || data == '' || nome == ''){
-        
-        alert("Informe todos os dados necessários para o agendamento")
-        return
-    }
-
-   let agendamento = {
-       protocolo: gerarProtocolo(),
-       status: 'aberto',
-       data: data,
-       periodo: conteudoPeriodo,
-       cooperativa: {
-            nome: nome,
-            endereço: endereço,
-            cep: cep,
-            cidade: cidade,
-            uf: uf
-       },
-       materiais: JSON.parse(window.sessionStorage.getItem('materiais')),
-       infoEmpresa: JSON.parse(window.sessionStorage.getItem('infoEmpresaEIdCooperativa'))
-   }
-
-   let idCooperativa = agendamento.infoEmpresa.idCooperativa
-
-    let promiseEmpresa = dbFirestore.doc(firebase.auth().currentUser.uid).collection('agendamentos').add(agendamento)
-    
-    promiseEmpresa
-        .then((result) => {
-
-       agendamento.idAgendamentoEmpresa = result.id
-
-       firebase.firestore().collection('cooperativas').doc(idCooperativa).collection('agendamentos').add(agendamento)
-            .then(() => {
-                alert('Agendamento cadastrado com sucesso!')
-                location.assign("http://127.0.0.1:5500/pages/dashboard.html")
-            })
-            .catch(erro => console.log(erro))
-   
-   })
-   .catch(erro => console.log(erro))
- }
-
-
- function mostrar(event){
-     console.log(event.target.options[event.target.selectedIndex].textContent)
- }
-
- function gerarProtocolo(){
-
-    return (Math.random() * (10000 - 1) + 1).toString().split('.').join('')
- }
-
-
- function buscarAgendamentos(){
+function buscarAgendamentos(){
     
     setTimeout(() => {
         dbFirestore.doc(firebase.auth().currentUser.uid).collection('agendamentos').get()
@@ -483,7 +314,7 @@ function buscarDadosCooperativa(){
      pData.innerText = `Data: ${agendamento.data}`
      agendamentoStatusDIV.appendChild(pData)
      let pCoopetativa = document.createElement('P')
-     pCoopetativa.innerText = `Cooperativa: ${agendamento.cooperativa.nome}`
+     pCoopetativa.innerText = `Requerente: ${agendamento.infoEmpresa.nome}`
      agendamentoStatusDIV.appendChild(pCoopetativa)
 
      let btnVerMais = document.createElement('button')
@@ -501,18 +332,18 @@ function buscarDadosCooperativa(){
 
     let valueIdAgendamento = event.target.getAttribute('data-idAgendamento')
     window.sessionStorage.setItem('id-Agendamento', valueIdAgendamento)
-    location.assign("http://127.0.0.1:5500/pages/infoAgendamento.html");
+    location.assign("http://127.0.0.1:5500/pages/infoAgendamentoCooperativa.html");
  }
 
 
  function buscarAgendamentoUnico(){
 
-  let idAgendamento = window.sessionStorage.getItem("id-Agendamento")
-
+  let idAgendamento = window.sessionStorage.getItem('id-Agendamento')
     setTimeout(() => {
         dbFirestore.doc(firebase.auth().currentUser.uid).collection('agendamentos').doc(idAgendamento).get()
         .then(result => {
                 renderAgendamentoUnico(result.data())
+                window.sessionStorage.setItem('infoAgendamento', JSON.stringify(result.data()))
         }).catch(err => {
             console.log(err)
         })
@@ -521,11 +352,11 @@ function buscarDadosCooperativa(){
 
  function renderAgendamentoUnico(agendamento){
     document.querySelector("#num-proto").innerText = 'PROTOCOLO: ' + agendamento.protocolo
-    document.querySelector('#endereço').value = agendamento.cooperativa.endereço
-    document.querySelector('#cep').value = agendamento.cooperativa.cep
-    document.querySelector('#uf').value = agendamento.cooperativa.uf
-    document.querySelector('#cidade').value = agendamento.cooperativa.cidade
-    document.querySelector("#option-coop").innerText = agendamento.cooperativa.nome
+    document.querySelector('#endereço').value = agendamento.infoEmpresa.endereço
+    document.querySelector('#cep').value = agendamento.infoEmpresa.cep
+    document.querySelector('#telefone').value = agendamento.infoEmpresa.telefone
+    document.querySelector('#cnpj').value = agendamento.infoEmpresa.cnpj
+    document.querySelector("#option-coop").innerText = agendamento.infoEmpresa.nome
     document.querySelector("#data").value = agendamento.data
     document.querySelector("#option-periodo").innerText = agendamento.periodo
     
@@ -571,3 +402,24 @@ function buscarDadosCooperativa(){
         return 'lixo-icon.png'
     }
  }
+
+ function atualizarStatus(){
+    
+    let infoAgendamento = JSON.parse(window.sessionStorage.getItem('infoAgendamento'))
+    let idAgendamentoCooperativa = window.sessionStorage.getItem('id-Agendamento')
+    
+    let idEmpresa = infoAgendamento.infoEmpresa.idEmpresa
+    let idAgendamentoEmpresa = infoAgendamento.idAgendamentoEmpresa
+
+    let promiseCooperativa = dbFirestore.doc(firebase.auth().currentUser.uid).collection('agendamentos').doc(idAgendamentoCooperativa).update({ status: 'Finalizado'})
+    let promiseEmpresa = firebase.firestore().collection('empresas').doc(idEmpresa).collection('agendamentos').doc(idAgendamentoEmpresa).update({ status: 'Finalizado'})
+
+    Promise.all([promiseCooperativa, promiseEmpresa])
+        .then(() => {
+            alert('Status atualizado com sucesso!')
+        })
+        .catch(erro => {
+            console.log(erro)
+        })
+
+ }  

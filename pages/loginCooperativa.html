@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/style.css">
+    <link rel="stylesheet" href="./../css/loginCooperativa.css">
+    <title>Login Cooperativas</title>
+</head>
+<body>
+    <header class="header-site">
+        <img class="img-logo" src="./../images/logo (1).png" alt="logo-image"> 
+        <nav class="menu">
+            <ul class="ul-menu">
+                <li class="menu-item home"><a href="#">home</a></li>
+                <li class="menu-item institucional"><a href="#">institucional</a></li>
+                <li class="menu-item cooperativas"><a href="#">cooperativas</a></li>
+                <li class="menu-item empresas"><a href="#">empresas</a></li>
+                <li class="menu-item agendamento"><a href="#">agendamento</a></li>
+                <li class="menu-item duvidas"><a href="#">dúvidas</a></li>
+                <li class="menu-item contato"><a href="#">contato</a></li>
+            </ul>
+        </nav>
+        <main class="conteudo">
+            <div class="icon-title-coopertivas" >
+                <img class="icon" src="./../images/icon-cooperativas.png" alt="icon-agendamento">
+                <h3 class="title">LOGIN</h3>
+            </div>
+            <div class="div-form">
+                <input type="text" placeholder="Login" id="input-auth-email">
+                <input type="password" placeholder="Senha" id="input-auth-senha">
+                <button class="btn-entrar" onclick="authCooperativa()">Entrar</button>
+                <a class="trocar-senha-link" href="#">Esqueci minha senha</a>
+                <a href="./cadastroCooperativa.html"><button class="btn-cadastrar">CADASTRE-SE GRÁTIS</button></a>
+            </div>
+        </main>
+        <footer>
+            <p><img src="./../images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
+        </footer>
+    
+        <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+    
+    
+        <!-- Nosso javascript -->
+        <script src="./../js/firebase.js"></script>
+        <script src="./../js/scriptCooperativa.js"></script>
+</body>
+</html>

@@ -1,8 +1,13 @@
-li.agendamento a{
-    color: var(--color-primary-agendamento-00);
+li.cooperativas a{
+    color: var(--color-primary-cooperativas-00);
 }
-li.agendamento :before{
+li.cooperativas :before{
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
+}
+
+.title-cooperativa {
+    color: var(--color-primary-cooperativas-00);
+    margin-top: 10px;
 }
 
 .agendamentos { 
@@ -16,10 +21,10 @@ li.agendamento :before{
     border-radius: 5px;
     height: 80px;
     min-width: 488px;
-    color: var(--color-primary-contato-00);
-    background-color: var(--color-primary-agendamento-03);
+    color: var(--color-secundary-01);
+    background-color: var(--color-primary-cooperativas-02);
     font-weight: 400;
-    box-shadow: 0px 3px 1px var(--color-light-01);
+    box-shadow: 0px 3px 1px var(--color-primary-cooperativas-0);
     margin: 10px auto;
 }
 .div-btn-voltar {
@@ -30,7 +35,7 @@ li.agendamento :before{
 }
 
 .btn-voltar button {
-    background-color: var(--color-primary-agendamento-00);
+    background-color: var(--color-primary-cooperativas-00);
     color: var(--color-light-02);
     border: none;
     cursor: pointer;
@@ -40,14 +45,14 @@ li.agendamento :before{
 }
 
 .btn-voltar button:hover {
-    background-color: var(--color-primary-agendamento-01)
+    background-color: var(--color-primary-cooperativas-01)
 }
 
 .btn-verMais {
     background-color: transparent;
     border-color: transparent;
     cursor: pointer;
-    color: var(--color-primary-agendamento-00);
+    color: var(--color-primary-cooperativas-01);
     
 }
 
