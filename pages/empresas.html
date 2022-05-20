@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/style.css">
+    <title>Empresas</title>
+    <style>
+         li.empresas a{
+            color: var(--color-primary-empresas-00);
+        }
+        li.empresas :before{
+            box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
+        }
+        .container-grid{
+            width: 60%;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 10px;
+            margin-bottom: 50px;
+        }
+
+        .title-institucional{
+            color: var(--color-primary-empresas-00);
+        }
+
+        .container-grid p {
+            color: var(--color-primary-contato-02);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .linha-2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .linha-2 img {
+            max-width: 72px;
+        }
+
+        .container-grid h5 {
+            color: var(--color-primary-empresas-00);
+            text-align: center;
+            padding: 10px 0px;
+            margin-bottom: 10px;
+        }
+        .linha-1{
+            grid-column: 1/4;
+        }
+        .div-btn-voltar{
+            width: 60%;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .btn-voltar button{
+            background-color: var(--color-primary-empresas-00);
+            color: var(--color-light-02);
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-site">
+        <div class="back-logo">
+            <img class="img-logo" src="./../images/logo (1).png" alt="logo-image"> 
+        </div>
+        <nav class="menu">
+            <ul class="ul-menu">
+                <li class="menu-item home"><a href="./../index.html">home</a></li>
+                <li class="menu-item institucional"><a href="./institucional.html">institucional</a></li>
+                <li class="menu-item cooperativas"><a href="./loginCooperativa.html">cooperativas</a></li>
+                <li class="menu-item empresas"><a href="#">empresas</a></li>
+                <li class="menu-item agendamento"><a href="./login.html">agendamento</a></li>
+                <li class="menu-item duvidas"><a href="./duvidas.html">dúvidas</a></li>
+                <li class="menu-item contato"><a href="./contato.html">contato</a></li>
+            </ul>
+        </nav>
+     </header> 
+     <main class="conteudo">
+        <div class="icon-title">
+            <img class="icon" src="./../images/icon empresas.png" alt="icon-agendamento">
+            <h3 class="title-institucional">EMPRESAS</h3>
+        </div>
+        <div class="container-grid">
+            <div class="linha-1">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus, esse atque fugit autem quo impedit 
+                    excepturi temporibus eligendi, odio, iure soluta? Consequatur delectus magnam optio tempora nisi maiores! 
+                    Eos placeat, laboriosam, quod sequi nisi incidunt fugiat reprehenderit necessitatibus 
+                    aperiam esse laudantium atque harum, porro reiciendis. Asperiores quasi deserunt illum laborum.</p>
+            </div>
+            <div class="linha-2">
+                <img src="./../images/reversa.png" alt="">
+                <h5>LOGÍSTICA REVERSA</h5>
+            </div>
+            <div class="linha-2">
+                <img src="./../images/empresas verdes.png" alt="">
+                <h5>EMPRESAS VERDES</h5>
+            </div>
+            <div class="linha-2">
+                <img src="./../images/CESTEB.png" alt="">
+                <h5>CESTEB</h5>
+            </div>
+        </div>
+        <div class="div-btn-voltar">
+            <a class="btn-voltar" href="./../index.html"><button>FECHAR</button></a>
+        </div>
+     </main>
+     <footer>
+        <p><img src="./../images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
+     </footer>
+</body>
+</html>

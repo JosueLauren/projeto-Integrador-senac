@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/style.css">
+    <title>Contato</title>
+    <style>
+        li.contato a{
+            color: var(--color-primary-contato-00);
+        }
+        li.contato :before{
+            box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .container{
+            width: 60%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: auto auto;
+            gap: 20px;
+        }
+        .container .p-textarea {
+            grid-column: 1/3;
+            
+        }
+        p label {
+            font-weight: bold;
+            color: var(--color-secundary-00);
+        }
+
+        .p-textarea textarea, p input {
+            width: 100%;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid var(--color-light-01);
+            box-shadow: 3px 3px 1px var(--color-light-01);
+            color: var(--color-secundary-00)
+        }
+
+        input::placeholder, textarea::placeholder{
+            color: #c0c0c0;
+        }
+        
+
+        .title-institucional{
+            color: var(--color-primary-contato-00);
+        }
+        .div-btn-voltar{
+            margin: auto;
+            width: 60%;
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+        .btn-enviar button{
+            background-color: var(--color-primary-contato-00);
+            color: var(--color-light-02);
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-voltar button {
+            background-color: var(--color-light-02);
+            color: var(--color-primary-contato-00);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid var(--color-primary-contato-00);
+            cursor: pointer;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header-site">
+        <div class="back-logo">
+            <img class="img-logo" src="./../images/logo (1).png" alt="logo-image"> 
+        </div>
+        <nav class="menu">
+            <ul class="ul-menu">
+                <li class="menu-item home"><a href="./../index.html">home</a></li>
+                <li class="menu-item institucional"><a href="./institucional.html">institucional</a></li>
+                <li class="menu-item cooperativas"><a href="./loginCooperativa.html">cooperativas</a></li>
+                <li class="menu-item empresas"><a href="./empresas.html">empresas</a></li>
+                <li class="menu-item agendamento"><a href="./login.html">agendamento</a></li>
+                <li class="menu-item duvidas"><a href="./duvidas.html">dúvidas</a></li>
+                <li class="menu-item contato"><a href="#">contato</a></li>
+            </ul>
+        </nav>
+     </header>
+     <main>
+        <div class="icon-title">
+            <img class="icon" src="./../images/icon contato.png" alt="icon-agendamento">
+            <h3 class="title-institucional">CONTATO</h3>
+        </div>
+        <div class="container">
+            <p><label for="">Nome*:</label><br> <input id="nome" placeholder="Digite aqui..." type="text"></p>
+            <p><label for="">E-mail*:</label><br> <input id="email" placeholder="Digite aqui..." type="text"></p>
+            <p class="p-textarea"><label for="">Mensagem*:</label><br> <textarea placeholder="Digite aqui..." id="msg" cols="30" rows="10"></textarea></p>
+        </div>
+    </div>
+    <div class="div-btn-voltar">
+        <a class="btn-voltar" href="./../index.html"><button>FECHAR</button></a>
+        <a class="btn-enviar" href="./../index.html"><button>ENVIAR</button></a>
+    </div>
+    </div>
+     </main>
+     <footer>
+        <p><img src="./../images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
+     </footer>
+</body>
+</html>

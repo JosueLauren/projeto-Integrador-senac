@@ -5,10 +5,75 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    
     <title>Home</title>
+    <style>
+        li.home a{
+            color: var(--color-primary-home-00);
+        }
+        li.home :before{
+            box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-logo {
+            background-image: url(./images/tela-home.png);
+            height: 328px;
+        }
+        .div-input-home {
+            margin: 50px 0px;
+            display: flex;
+            justify-content: center;
+        }
+        .input-home {
+            margin: auto;
+            width: 350px;
+            border: 1px solid var(--color-primary-contato-02);
+            border-radius: 5px;
+            height: 30px;
+            padding: 10px;
+        }
+
+        .btn-search {
+            background-image: url('./images/search.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            position: relative;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            right: 30px;
+            background-color: transparent;
+            border: none;
+        }
+    </style>
 </head>
 <body>
-    
+    <header class="header-site">
+        <div class="back-logo">
+            <img class="img-logo" src="./../images/logo-dashboard.png" alt="logo-image"> 
+        </div>
+        <nav class="menu">
+            <ul class="ul-menu">
+                <li class="menu-item home"><a href="#">home</a></li>
+                <li class="menu-item institucional"><a href="./pages/institucional.html">institucional</a></li>
+                <li class="menu-item cooperativas"><a href="./pages/loginCooperativa.html">cooperativas</a></li>
+                <li class="menu-item empresas"><a href="./pages/empresas.html">empresas</a></li>
+                <li class="menu-item agendamento"><a href="./pages/login.html">agendamento</a></li>
+                <li class="menu-item duvidas"><a href="./pages/duvidas.html">dúvidas</a></li>
+                <li class="menu-item contato"><a href="./pages/contato.html">contato</a></li>
+            </ul>
+        </nav>
+     </header> 
+     <main class="conteudo">
+        <div class="div-input-home">
+            <input placeholder="Pesquisar..." class="input-home" type="text" name="" id="">
+            <button class="btn-search"></button>
+        </div>
+        <img src="./images/logo (1).png" alt="">
+     </main>
+     <footer>
+        <p><img src="./../images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
+     </footer>
 </body>
 </html>
