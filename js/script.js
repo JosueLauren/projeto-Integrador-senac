@@ -439,11 +439,6 @@ function buscarDadosCooperativa(){
    .catch(erro => console.log(erro))
  }
 
-
- function mostrar(event){
-     console.log(event.target.options[event.target.selectedIndex].textContent)
- }
-
  function gerarProtocolo(){
 
     return (Math.random() * (10000 - 1) + 1).toString().split('.').join('')
