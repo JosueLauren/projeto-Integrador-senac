@@ -255,7 +255,7 @@ function signout(){
     }
 
     let DadosCooperativa = {
-        nome: inputCooperativa.value,
+        Nome: inputCooperativa.value,
         CNPJ: inputCnpj.value,
         Endereço: inputEndereço.value,
         CEP: inputCep.value,
