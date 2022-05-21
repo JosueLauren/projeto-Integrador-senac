@@ -1,6 +1,18 @@
 // Referência ao Cloud Firestore
 var dbFirestore = firebase.firestore().collection('empresas')
 
+
+function setarURL(){
+    let tamanhoTotalUrl =  window.location.href.length
+    let tamanhoCaminho = window.location.pathname.length
+    let inicioCaminho = tamanhoTotalUrl - tamanhoCaminho
+
+    let urlSemCaminho =  window.location.href.substring(0, inicioCaminho)
+
+    return urlSemCaminho
+}
+
+
 // Função para cadastrar uma nova empresa
 function cadastrarEmpresas(){
     
@@ -99,7 +111,7 @@ function cadastrarEmpresas(){
                     dbFirestore.doc(firebase.auth().currentUser.uid).set(DadosEmpresa)
                     .then(() => {
                         alert('Cadastrado com sucesso!')
-                        location.assign("http://127.0.0.1:5500/pages/dashboard.html");
+                        location.assign(`${setarURL()}/pages/dashboard.html`);
                     })
                     .catch(erro => console.log(erro))
                     
@@ -123,17 +135,18 @@ function authEmpresa(){
     firebase.auth().signInWithEmailAndPassword(inputEmail.value, inputSenha.value)
         .then(result => {
             alert('Logado com sucesso')
-            location.assign("http://127.0.0.1:5500/pages/dashboard.html");
+            location.assign(`${setarURL()}/pages/dashboard.html`);
         })
         .catch(error => alert('Login não autorizado') )
 }
+
 
 
 // Função de deslogar Empresa
 function signout(){
   firebase.auth().signOut()
         .then(() => {
-            location.assign("http://127.0.0.1:5500/pages/login.html");
+            location.assign(`${setarURL()}/pages/login.html`);
         })
         .catch(function (error) {
         console.log('Falha ao sair da conta: ', error)
@@ -276,7 +289,7 @@ function atualizardadosEmpresa(){
        user.updatePassword(inputSenha.value)
             .then(() => {
                 alert('Atualizado com sucesso!')
-                location.assign("http://127.0.0.1:5500/pages/dashboard.html");
+                location.assign(`${setarURL()}/pages/dashboard.html`);
             }).catch(error => {
                 console.log(error)
             })
@@ -320,7 +333,7 @@ function definirMateriais(){
     }
 
     window.sessionStorage.setItem('materiais', JSON.stringify(materiaisSlecionados))
-    location.assign("http://127.0.0.1:5500/pages/dadosCooperativa.html")
+    location.assign(`${setarURL()}/pages/dadosCooperativa.html`)
 }
 
 function buscarDadosCooperativa(){
@@ -431,7 +444,7 @@ function buscarDadosCooperativa(){
        firebase.firestore().collection('cooperativas').doc(idCooperativa).collection('agendamentos').add(agendamento)
             .then(() => {
                 alert('Agendamento cadastrado com sucesso!')
-                location.assign("http://127.0.0.1:5500/pages/dashboard.html")
+                location.assign(`${setarURL()}/pages/dashboard.html`)
             })
             .catch(erro => console.log(erro))
    
@@ -496,7 +509,7 @@ function buscarDadosCooperativa(){
 
     let valueIdAgendamento = event.target.getAttribute('data-idAgendamento')
     window.sessionStorage.setItem('id-Agendamento', valueIdAgendamento)
-    location.assign("http://127.0.0.1:5500/pages/infoAgendamento.html");
+    location.assign(`${setarURL()}/pages/infoAgendamento.html`);
  }
 
 

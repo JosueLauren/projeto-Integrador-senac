@@ -1,6 +1,16 @@
 // Referência ao Cloud Firestore
 var dbFirestore = firebase.firestore().collection('cooperativas')
 
+function setarURL(){
+    let tamanhoTotalUrl =  window.location.href.length
+    let tamanhoCaminho = window.location.pathname.length
+    let inicioCaminho = tamanhoTotalUrl - tamanhoCaminho
+
+    let urlSemCaminho =  window.location.href.substring(0, inicioCaminho)
+
+    return urlSemCaminho
+}
+
 // Função para cadastrar uma nova empresa
 function cadastrarCooperativas(){
     
@@ -99,7 +109,7 @@ function cadastrarCooperativas(){
                     dbFirestore.doc(firebase.auth().currentUser.uid).set(DadosCooperativa)
                     .then(() => {
                         alert('Cadastrado com sucesso!')
-                        location.assign("http://127.0.0.1:5500/pages/dashboardCooperativas.html");
+                        location.assign(`${setarURL()}/pages/dashboardCooperativas.html`);
                     })
                     .catch(erro => console.log(erro))
                     
@@ -120,7 +130,7 @@ function authCooperativa(){
     firebase.auth().signInWithEmailAndPassword(inputEmail.value, inputSenha.value)
         .then(result => {
             alert('Logado com sucesso')
-            location.assign("http://127.0.0.1:5500/pages/dashboardCooperativas.html");
+            location.assign(`${setarURL()}/pages/dashboardCooperativas.html`);
         })
         .catch(error => alert('Login não autorizado') )
 }
@@ -130,7 +140,7 @@ function authCooperativa(){
 function signout(){
     firebase.auth().signOut()
           .then(() => {
-              location.assign("http://127.0.0.1:5500/pages/loginCooperativa.html");
+              location.assign(`${setarURL()}/pages/loginCooperativa.html`);
           })
           .catch(function (error) {
           console.log('Falha ao sair da conta: ', error)
@@ -272,7 +282,7 @@ function signout(){
        user.updatePassword(inputSenha.value)
             .then(() => {
                 alert('Atualizado com sucesso!')
-                location.assign("http://127.0.0.1:5500/pages/dashboardCooperativas.html");
+                location.assign(`${setarURL()}/pages/dashboardCooperativas.html`);
             }).catch(error => {
                 console.log(error)
             })
@@ -332,7 +342,7 @@ function buscarAgendamentos(){
 
     let valueIdAgendamento = event.target.getAttribute('data-idAgendamento')
     window.sessionStorage.setItem('id-Agendamento', valueIdAgendamento)
-    location.assign("http://127.0.0.1:5500/pages/infoAgendamentoCooperativa.html");
+    location.assign(`${setarURL()}/pages/infoAgendamentoCooperativa.html`);
  }
 
 
