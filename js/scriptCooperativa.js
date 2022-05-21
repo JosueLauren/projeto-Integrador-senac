@@ -297,9 +297,9 @@ function buscarAgendamentos(){
         dbFirestore.doc(firebase.auth().currentUser.uid).collection('agendamentos').get()
         .then(result => {
             result.forEach(doc =>{
-                renderAgendamentos(doc.data(), doc.id)
-
-                // console.log(doc.id)
+                if(!doc.data().deletado){
+                    renderAgendamentos(doc.data(), doc.id)
+                }
                 
             })
         }).catch(err => {

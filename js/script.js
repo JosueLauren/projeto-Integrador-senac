@@ -421,6 +421,7 @@ function buscarDadosCooperativa(){
        status: 'aberto',
        data: data,
        periodo: conteudoPeriodo,
+       deletado: false,
        cooperativa: {
             nome: nome,
             endereço: endereço,
@@ -442,9 +443,15 @@ function buscarDadosCooperativa(){
        agendamento.idAgendamentoEmpresa = result.id
 
        firebase.firestore().collection('cooperativas').doc(idCooperativa).collection('agendamentos').add(agendamento)
-            .then(() => {
-                alert('Agendamento cadastrado com sucesso!')
-                location.assign(`${setarURL()}/pages/dashboard.html`)
+            .then((result) => {
+
+                agendamento.idAgendamentoCooperativa = result.id
+
+                dbFirestore.doc(firebase.auth().currentUser.uid).collection('agendamentos').doc(agendamento.idAgendamentoEmpresa).set(agendamento)
+                    .then(() => {
+                        alert('Agendamento cadastrado com sucesso!')
+                        location.assign(`${setarURL()}/pages/dashboard.html`)
+                    })
             })
             .catch(erro => console.log(erro))
    
@@ -464,10 +471,9 @@ function buscarDadosCooperativa(){
         dbFirestore.doc(firebase.auth().currentUser.uid).collection('agendamentos').get()
         .then(result => {
             result.forEach(doc =>{
-                renderAgendamentos(doc.data(), doc.id)
-
-                // console.log(doc.id)
-                
+                if(!doc.data().deletado){
+                    renderAgendamentos(doc.data(), doc.id)
+                }
             })
         }).catch(err => {
             console.log(err)
@@ -528,6 +534,15 @@ function buscarDadosCooperativa(){
  }
 
  function renderAgendamentoUnico(agendamento){
+
+    let Ids = {
+        idCooperativa: agendamento.infoEmpresa.idCooperativa,
+        idAgendamentoCooperativa: agendamento.idAgendamentoCooperativa,
+        idAgendamentoEmpresa: agendamento.idAgendamentoEmpresa
+    }
+
+    window.sessionStorage.setItem('Ids', JSON.stringify(Ids))
+
     document.querySelector("#num-proto").innerText = 'PROTOCOLO: ' + agendamento.protocolo
     document.querySelector('#endereço').value = agendamento.cooperativa.endereço
     document.querySelector('#cep').value = agendamento.cooperativa.cep
@@ -577,5 +592,27 @@ function buscarDadosCooperativa(){
         return 'pneu-icon.png'
     } else {
         return 'lixo-icon.png'
+    }
+ }
+
+ function deletarAgendamento() {
+    let Ids = JSON.parse(window.sessionStorage.getItem('Ids'))
+
+    confirmar = confirm('Deseja deletar esse agendamento?')
+
+    if(confirmar){
+        
+        let promiseEmpresa = dbFirestore.doc(firebase.auth().currentUser.uid).collection('agendamentos').doc(Ids.idAgendamentoEmpresa).update({ deletado: true})
+        let promiseCooperativa = firebase.firestore().collection('cooperativas').doc(Ids.idCooperativa).collection('agendamentos').doc(Ids.idAgendamentoCooperativa).update({ deletado: true})
+        
+        Promise.all([promiseCooperativa, promiseEmpresa])
+            .then(() => {
+                alert('Agendamento deletado com sucesso!')
+                location.assign(`${setarURL()}/pages/dashboard.html`);
+            })
+            .catch(erro => {
+                console.log(erro)
+            })
+        
     }
  }
