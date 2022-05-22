@@ -10,7 +10,16 @@ terem agendamentos em seu nome para efetuarem a busca programada dos materiais n
 requerente, facilitando e agilizando seu trabalho.
 
 
-## Demonstração de uso
+## Uso/Teste
+
+Para testar o sistema, pode ser utilizando a versão
+que está em produção [Recicla+](https://projeto-integrador-senac.vercel.app/index.html), fizemos o
+deploy exatamente para facilitar o teste.
+E também pode ser feito localmente baixando os arquivos do repositório.
+Nessa forma, recomendamos que teste utilizando algum servidor de desenvolvimento como o [Live server](https://www.npmjs.com/package/live-server) e não diretamente pelo sistema de arquivos, pois para funcionar algumas páginas será preciso rodar dessa forma.
+
+
+## Demonstração
 
 ![App Screenshot](./imgsRedme/Home.png)
  Tela Home do Site 
@@ -74,6 +83,5 @@ Atualização de dados pessoais
 - [THIAGO LAURENTINO DA CONCEIÇÃO](https://www.github.com/tiagolauren)
 
     GRUPO 6
-
 
 
