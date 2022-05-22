@@ -16,7 +16,7 @@ requerente, facilitando e agilizando seu trabalho.
  Tela Home do Site 
 
 
-#### Telas da empresa Requerente
+### Telas da empresa Requerente
 ![App Screenshot](./imgsRedme/cadastro%20requerente.png)
 Cadastro
 
@@ -42,7 +42,7 @@ Mais informações e excluir agendamento
 Atualização de dados pessoais
 
 
-#### Telas da Cooperativa
+### Telas da Cooperativa
 ![App Screenshot](./imgsRedme/cadastro%20cooperativa.png)
 Cadastro
 

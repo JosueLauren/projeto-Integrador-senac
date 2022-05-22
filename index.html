@@ -67,13 +67,21 @@
      </header> 
      <main class="conteudo">
         <div class="div-input-home">
-            <input placeholder="Pesquisar..." class="input-home" type="text" name="" id="">
-            <button class="btn-search"></button>
+            <input placeholder="Pesquisar..." class="input-home" type="text" name="" id="input-search">
+            <button class="btn-search" onclick="pesquisar()"></button>
         </div>
         <img src="./images/logo (1).png" alt="">
      </main>
      <footer>
         <p><img src="./images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
      </footer>
+         <!-- Recursos do firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+
+    <!-- Nosso javascript -->
+    <script src="./js/firebase.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>

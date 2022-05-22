@@ -616,3 +616,29 @@ function buscarDadosCooperativa(){
         
     }
  }
+
+ function EnviarMsg(){
+     let nome = document.querySelector('#nome')
+     let email = document.querySelector('#email')
+     let msg = document.querySelector('#msg')
+
+     if(nome.value.trim() == '' || email.value.trim() == '' || msg.value.trim() == '' ){
+         alert('Campos obrigatórios!')
+         return
+     }
+
+     firebase.firestore().collection('contatos').add({nome: nome.value, email: email.value, msg: msg.value })
+        .then(() => {
+         nome.value = ''; email.value = ''; msg.value = '';
+         alert('Obrigado pela mensagem! Entraremos em contato via E-mail.')
+
+     }).catch(error => {
+         console.log(error)
+     })
+ }
+
+ function pesquisar(){
+     let valor = document.querySelector('#input-search').value
+
+     window.location.href = `https://www.google.com/search?q=${valor}`
+ }

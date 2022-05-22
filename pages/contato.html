@@ -55,7 +55,7 @@
             justify-content: flex-end;
             margin-top: 20px;
         }
-        .btn-enviar button{
+        .btn-enviar{
             background-color: var(--color-primary-contato-00);
             color: var(--color-light-02);
             padding: 10px;
@@ -99,18 +99,26 @@
         </div>
         <div class="container">
             <p><label for="">Nome*:</label><br> <input id="nome" placeholder="Digite aqui..." type="text"></p>
-            <p><label for="">E-mail*:</label><br> <input id="email" placeholder="Digite aqui..." type="text"></p>
+            <p><label for="">E-mail*:</label><br> <input id="email" placeholder="Digite aqui..." type="email"></p>
             <p class="p-textarea"><label for="">Mensagem*:</label><br> <textarea placeholder="Digite aqui..." id="msg" cols="30" rows="10"></textarea></p>
         </div>
     </div>
     <div class="div-btn-voltar">
         <a class="btn-voltar" href="./../index.html"><button>FECHAR</button></a>
-        <a class="btn-enviar" href="./../index.html"><button>ENVIAR</button></a>
+        <button class="btn-enviar" onclick="EnviarMsg()">ENVIAR</button>
     </div>
     </div>
      </main>
      <footer>
         <p><img src="./../images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
      </footer>
+    <!-- Recursos do firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-auth.js"></script>
+
+    <!-- Nosso javascript -->
+    <script src="./../js/firebase.js"></script>
+    <script src="./../js/script.js"></script>
 </body>
 </html>
