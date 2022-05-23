@@ -9,7 +9,7 @@ li.cooperativas :before{
     color: var(--color-primary-cooperativas-00);
 }
 
-form.form-cadastro{
+form.form-cadastro, form.form-cadastro-update{
     width: 70%;
 }
 .div-inputs {

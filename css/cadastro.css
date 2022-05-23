@@ -5,7 +5,7 @@ li.agendamento :before{
     box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.2);
 }
 
-form.form-cadastro{
+form.form-cadastro, form.form-cadastro-update{
     width: 70%;
 }
 .div-inputs {
