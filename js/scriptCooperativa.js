@@ -433,3 +433,13 @@ function buscarAgendamentos(){
         })
 
  }  
+
+ const menuMobile = document.querySelector('.menu-mobile')
+
+ function abrirMenuMobile(){
+    menuMobile.style.display = 'inline'
+}
+
+ function fecharMenuMobile(){
+    menuMobile.style.display = 'none'
+ }

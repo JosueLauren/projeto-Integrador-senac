@@ -120,6 +120,92 @@ li.contato a::before{
     border-color: var(--color-primary-contato-00);
 }
 
+/* menu mobile */
+
+.menu-mobile {
+    background-image: linear-gradient(#D8D4D4, #FFFFFF);
+    width: 293px;
+    position: fixed;
+    left: calc(100% - 293px);
+    top: 0px;
+    height: 100vh;
+    z-index: 1;
+    display: none;
+}
+
+.btn-hamburguer-menu-mobile{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    left: 88%;
+    top: -70px;
+    padding: 10px;
+    display: none;
+}
+
+.btn-hamburguer-menu-mobile:hover, .btn-close-menu-mobile:hover{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.btn-close-menu-mobile{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    left: 86%;
+    padding: 10px;
+}
+
+.menu-mobile-item{
+    margin: 10px auto;
+    list-style: none;
+}
+
+.menu-mobile-item.home a {
+    color: var(--color-primary-home-00);
+}
+
+.menu-mobile-item.institucional a{
+    color: var(--color-primary-institucional-00);
+}
+
+.menu-mobile-item.cooperativas a{
+    color: var(--color-primary-cooperativas-00);
+}
+
+.menu-mobile-item.empresas a{
+    color: var(--color-primary-empresas-00);
+}
+
+.menu-mobile-item.agendamento a{
+    color: var(--color-primary-agendamento-00);
+}
+
+.menu-mobile-item.duvidas a{
+    color: var(--color-primary-duvidas-00);
+}
+
+.menu-mobile-item.contato a{
+    color: var(--color-primary-contato-00);
+}
+
+.menu-mobile-item:hover {
+    background-color:#F7F8FC;
+}
+.menu-mobile-item a {
+   flex: 1;
+   display: flex;
+   align-items: center;
+   height: 44px; 
+   font-weight: bold; 
+   margin: 10px;
+}
+
+.menu-mobile-item img {
+    margin: auto 10px;
+}
+
 /* conteudo principal */
 
 main.conteudo {
@@ -146,4 +232,27 @@ footer p {
     text-align: center;
     margin: 200px auto 20px auto;
     color: #c0c0c0;
+}
+
+
+/* tela tablet/mobile */
+
+@media screen and (max-width: 900px) {
+
+    img.img-logo.img-home {
+        padding-top: 50px;
+    }
+
+    .back-logo{
+        height: 120px !important;
+        background-image: linear-gradient(#F4F4F4, #D4D0D0) !important;
+    }
+
+    .btn-hamburguer-menu-mobile{
+        display: inline;
+    } 
+
+    .menu{
+        display: none;
+    }
 }

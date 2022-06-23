@@ -642,3 +642,13 @@ function buscarDadosCooperativa(){
 
      window.location.href = `https://www.google.com/search?q=${valor}`
  }
+
+ const menuMobile = document.querySelector('.menu-mobile')
+
+ function abrirMenuMobile(){
+    menuMobile.style.display = 'inline'
+}
+
+ function fecharMenuMobile(){
+    menuMobile.style.display = 'none'
+ }

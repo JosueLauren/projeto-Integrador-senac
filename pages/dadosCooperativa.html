@@ -10,7 +10,22 @@
 </head>
 <body onload="buscarDadosCooperativa()">
     <header class="header-site">
-        <img class="img-logo" src="./../images/logo (1).png" alt="logo-image"> 
+        <div class="back-logo">
+            <img class="img-logo" src="./../images/logo (1).png" alt="logo-image"> 
+        </div> 
+        <button onclick="abrirMenuMobile()" class="btn-hamburguer-menu-mobile"><img src="./../images/icon-hamburger.svg" alt=""></button>
+        <nav class="menu-mobile">
+            <button onclick="fecharMenuMobile()" class="btn-close-menu-mobile"><img src="./../images/icon-close.svg" alt=""></button>
+            <ul class="ul-menu-mobile">
+                <li class="menu-mobile-item home"><a href="./../index.html"><img src="./../images/icon-mobile-home.png" alt=""> Home</a></li>
+                <li class="menu-mobile-item institucional"><a href="./institucional.html"> <img src="./../images/icon-mobile-institucional.png" alt=""> Institucional</a></li>
+                <li class="menu-mobile-item cooperativas"><a href="./loginCooperativa.html"> <img src="./../images/icon-mobile-coop.png"  alt=""> Cooperativas</a></li>
+                <li class="menu-mobile-item empresas"><a href="./empresas.html"> <img src="./../images/icon-mobile-empresas.png"  alt=""> Empresas</a></li>
+                <li class="menu-mobile-item agendamento"><a href="./login.html"> <img src="./../images/icon-mobile-agendamento.png"  alt=""> Agendamento</a></li>
+                <li class="menu-mobile-item duvidas"><a href="./duvidas.html"> <img src="./../images/icon-mobile-duvidas.png"  alt=""> Dúvidas</a></li>
+                <li class="menu-mobile-item contato"><a href="./contato.html"> <img src="./../images/icon-mobile-contato.png"  alt=""> Contato</a></li>
+            </ul>
+        </nav>
         <nav class="menu">
             <ul class="ul-menu">
                 <li class="menu-item home"><a href="./../index.html">home</a></li>
