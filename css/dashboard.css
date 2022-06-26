@@ -80,3 +80,19 @@ li.agendamento :before{
 .signout-btn:hover {
     background-color: var(--color-primary-agendamento-01)
 }
+
+@media screen and (max-width: 600px) {
+
+    .signout-div{
+    padding: 0 50px;
+    }
+
+    .cards{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .item-card {
+        margin-bottom: 50px;
+    }
+}

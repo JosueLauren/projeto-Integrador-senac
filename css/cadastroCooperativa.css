@@ -67,3 +67,14 @@ button.btn-salvar{
 button.btn-salvar:hover {
     background-color: var(--color-primary-cooperativas-01)
 }
+
+@media screen and (max-width: 600px ) {
+    form.form-cadastro, form.form-cadastro-update{
+        width: 90%;
+    }
+
+    .div-inputs p {
+        grid-column: 1/4 !important;
+    }
+}
+

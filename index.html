@@ -22,10 +22,14 @@
             margin: 50px 0px;
             display: flex;
             justify-content: center;
+            width: 90%;
+            max-width: 350px;
+            position: relative;
         }
         .input-home {
             margin: auto;
-            width: 350px;
+            width: 100%;
+            max-width: 350px;
             border: 1px solid var(--color-primary-contato-02);
             border-radius: 5px;
             height: 30px;
@@ -39,10 +43,10 @@
             width: 30px;
             height: 30px;
             cursor: pointer;
-            position: relative;
+            position: absolute;
             border-bottom-right-radius: 5px;
             border-top-right-radius: 5px;
-            right: 30px;
+            right: 10px;
             background-color: transparent;
             border: none;
         }
@@ -89,6 +93,11 @@
      <footer>
         <p><img src="./images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
      </footer>
+        <div class="modal">
+            <img class="img-modal" src="" alt="" >
+            <p class="p-modal">sucesso!</p>
+            <button class="btn-modal">Ok</button>
+        </div>
          <!-- Recursos do firebase -->
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>

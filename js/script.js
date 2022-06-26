@@ -13,6 +13,43 @@ function setarURL(){
 }
 
 
+const modal = document.querySelector('.modal')
+const imgModal = document.querySelector('.img-modal')
+const paragrafoModal = document.querySelector('.p-modal')
+const btnModal = document.querySelector('.btn-modal')
+
+
+function modalSucesso(text, cb){
+  imgModal.src = './../images/ok.png'
+  paragrafoModal.innerText = text
+  paragrafoModal.style.color = '#47BC4C'
+  btnModal.style.backgroundColor = '#47BC4C'
+  modal.style.display = 'flex'
+  document.body.style.overflow = 'hidden'
+  btnModal.onclick = cb
+}
+
+function modalError(text, cb){
+   imgModal.src = './../images/x-circle.png'
+   paragrafoModal.innerText = text
+   paragrafoModal.style.color = 'red'
+   btnModal.style.backgroundColor = 'red'
+   modal.style.display = 'flex'
+   document.body.style.overflow = 'hidden'
+   btnModal.onclick = cb 
+}
+
+function modalWarning(text, cb){
+    imgModal.src = './../images/alert-circle.png'
+    paragrafoModal.innerText = text
+    paragrafoModal.style.color = '#F7D401'
+    btnModal.style.backgroundColor = '#F7D401'
+    modal.style.display = 'flex'
+    document.body.style.overflow = 'hidden'
+    btnModal.onclick = cb
+}
+
+
 // Função para cadastrar uma nova empresa
 function cadastrarEmpresas(){
     
@@ -28,67 +65,89 @@ function cadastrarEmpresas(){
     let inputConfirmSenha = document.querySelector('#input-confirmaSenha')
 
     if(inputEmpresa.value.trim() == ''){
-        alert('Campo Empresa obrigatório')
+        modalWarning('Campo Empresa obrigatório', ()=> {
+            fecharModal()
+        })
         inputEmpresa.focus()
         return
     }
 
     if(inputEndereço.value.trim() == ''){
-        alert('Campo Endereço obrigatório')
+        modalWarning('Campo Endereço obrigatório', ()=> {
+            fecharModal()
+        })
         inputEndereço.focus()
         return
     }
 
     if(inputUf.value.trim() == ''){
-        alert('Campo Uf obrigatório')
+        modalWarning('Campo Uf obrigatório', ()=> {
+            fecharModal()
+        })
         inputUf.focus()
         return
     }
 
     if(inputMunicipio.value.trim() == ''){
-        alert('Campo Municipio obrigatório')
+        modalWarning('Campo Municipio obrigatório', ()=> {
+            fecharModal()
+        })
         inputMunicipio.focus()
         return
     }
 
     if(inputEmail.value.trim() == ''){
-        alert('Campo Email obrigatório')
+        modalWarning('Campo Email obrigatório', ()=> {
+            fecharModal()
+        })
         inputEmail.focus()
         return
     }
 
     if(inputCnpj.value.trim() == ''){
-        alert('Campo Cnpj obrigatório')
+        modalWarning('Campo Cnpj obrigatório', ()=> {
+            fecharModal()
+        })
         inputCnpj.focus()
         return
     }
 
     if(inputCep.value.trim() == ''){
-        alert('Campo CEP obrigatório')
+        modalWarning('Campo CEP obrigatório', ()=> {
+            fecharModal()
+        })
         inputCep.focus()
         return 
     }
 
     if(inputTelefone.value.trim() == ''){
-        alert('Campo Telefone obrigatório')
+        modalWarning('Campo Telefone obrigatório', ()=> {
+            fecharModal()
+        })
         inputTelefone.focus()
         return
     }
 
     if(inputSenha.value.trim() == ''){
-        alert('Campo Senha obrigatório')
+        modalWarning('Campo Senha obrigatório', ()=> {
+            fecharModal()
+        })
         inputSenha.focus()
         return
     }
 
     if(inputConfirmSenha.value.trim() == ''){
-        alert('Campo Confirmar senha obrigatório')
+        modalWarning('Campo Confirmar senha obrigatório', ()=> {
+            fecharModal()
+        })
         inputConfirmSenha.focus()
         return
     }
 
     if(inputSenha.value !== inputConfirmSenha.value ) {
-        alert('As senhas precisam serem iguais')
+        modalWarning('As senhas precisam serem iguais', () => {
+            fecharModal()
+        })
         inputConfirmSenha.focus()
         return 
     }
@@ -110,13 +169,16 @@ function cadastrarEmpresas(){
             .then(() =>{
                     dbFirestore.doc(firebase.auth().currentUser.uid).set(DadosEmpresa)
                     .then(() => {
-                        alert('Cadastrado com sucesso!')
-                        location.assign(`${setarURL()}/pages/dashboard.html`);
+                        modalSucesso('Cadastrado com sucesso!', () => {
+                            location.assign(`${setarURL()}/pages/dashboard.html`)
+                        })
                     })
                     .catch(erro => console.log(erro))
                     
                 })
-            .catch(err => alert('Erro ao cadastrar ' + err))
+            .catch(err => modalError('Erro ao cadastrar ' + err, () => {
+                fecharModal()
+            }))
 
    
 }
@@ -128,16 +190,22 @@ function authEmpresa(){
     let inputSenha = document.querySelector('#input-auth-senha')
 
     if(inputEmail.value.trim() == '' || inputSenha.value.trim() == ''){
-        alert('Digite seu email e sua senha!')
+        modalWarning('Digite seu email e sua senha!', () => {
+            fecharModal()
+        })
         return
     }
 
     firebase.auth().signInWithEmailAndPassword(inputEmail.value, inputSenha.value)
         .then(result => {
-            alert('Logado com sucesso')
-            location.assign(`${setarURL()}/pages/dashboard.html`);
+            modalSucesso('Logado com Sucesso!',() => {
+                location.assign(`${setarURL()}/pages/dashboard.html`)
+            })
+           
         })
-        .catch(error => alert('Login não autorizado') )
+        .catch((error) => modalError('Login não autorizado', () => {
+            fecharModal()
+        }))
 }
 
 
@@ -206,67 +274,89 @@ function atualizardadosEmpresa(){
     let inputConfirmSenha = document.querySelector('#input-confirmaSenha')
 
     if(inputEmpresa.value.trim() == ''){
-        alert('Campo Empresa obrigatório')
+        modalWarning('Campo Empresa obrigatório', () => {
+            fecharModal()
+        })
         inputEmpresa.focus()
         return
     }
 
     if(inputEndereço.value.trim() == ''){
-        alert('Campo Endereço obrigatório')
+        modalWarning('Campo Endereço obrigatório', () => {
+            fecharModal()
+        })
         inputEndereço.focus()
         return
     }
 
     if(inputUf.value.trim() == ''){
-        alert('Campo Uf obrigatório')
+        modalWarning('Campo Uf obrigatório', () => {
+            fecharModal()
+        })
         inputUf.focus()
         return
     }
 
     if(inputMunicipio.value.trim() == ''){
-        alert('Campo Municipio obrigatório')
+        modalWarning('Campo Municipio obrigatório', () => {
+            fecharModal()
+        })
         inputMunicipio.focus()
         return
     }
 
     if(inputEmail.value.trim() == ''){
-        alert('Campo Email obrigatório')
+        modalWarning('Campo Email obrigatório', () => {
+            fecharModal()
+        })
         inputEmail.focus()
         return
     }
 
     if(inputCnpj.value.trim() == ''){
-        alert('Campo Cnpj obrigatório')
+        modalWarning('Campo Cnpj obrigatório', () => {
+            fecharModal()
+        })
         inputCnpj.focus()
         return
     }
 
     if(inputCep.value.trim() == ''){
-        alert('Campo CEP obrigatório')
+        modalWarning('Campo CEP obrigatório', () => {
+            fecharModal()
+        })
         inputCep.focus()
         return 
     }
 
     if(inputTelefone.value.trim() == ''){
-        alert('Campo Telefone obrigatório')
+        modalWarning('Campo Telefone obrigatório', () => {
+            fecharModal()
+        })
         inputTelefone.focus()
         return
     }
 
     if(inputSenha.value.trim() == ''){
-        alert('Campo Senha obrigatório')
+        modalWarning('Campo Senha obrigatório', () => {
+            fecharModal()
+        })
         inputSenha.focus()
         return
     }
 
     if(inputConfirmSenha.value.trim() == ''){
-        alert('Campo Confirmar senha obrigatório')
+        modalWarning('Campo Confirmar senha obrigatório', () => {
+            fecharModal()
+        })
         inputConfirmSenha.focus()
         return
     }
 
     if(inputSenha.value !== inputConfirmSenha.value ) {
-        alert('As senhas precisam serem iguais')
+        modalWarning('As senhas precisam serem iguais', () => {
+            fecharModal()
+        })
         inputConfirmSenha.focus()
         return 
     }
@@ -288,8 +378,10 @@ function atualizardadosEmpresa(){
        const user = firebase.auth().currentUser
        user.updatePassword(inputSenha.value)
             .then(() => {
-                alert('Atualizado com sucesso!')
-                location.assign(`${setarURL()}/pages/dashboard.html`);
+                modalSucesso('Atualizado com sucesso!', () => {
+                    location.assign(`${setarURL()}/pages/dashboard.html`);
+                })
+                
             }).catch(error => {
                 console.log(error)
             })
@@ -308,7 +400,9 @@ function definirMateriais(){
     })
 
     if(qtdInputsChecados === 0){
-        alert('Insira algum tipo de material')
+        modalWarning('Insira algum tipo de material', () => {
+            fecharModal()
+        })
         return
     }
     
@@ -328,7 +422,9 @@ function definirMateriais(){
     })
 
     if(qtdMaterialVazia) {
-        alert('Informe a quantidade dos materiais!')
+        modalWarning('Informe a quantidade dos materiais!', () => {
+            fecharModal()
+        })
         return
     }
 
@@ -412,7 +508,9 @@ function buscarDadosCooperativa(){
 
     if(endereço == '' || cep == '' || uf == '' || cidade == '' || data == '' || nome == ''){
         
-        alert("Informe todos os dados necessários para o agendamento")
+        modalWarning("Informe todos os dados necessários para o agendamento", () => {
+            fecharModal()
+        })
         return
     }
 
@@ -449,8 +547,10 @@ function buscarDadosCooperativa(){
 
                 dbFirestore.doc(firebase.auth().currentUser.uid).collection('agendamentos').doc(agendamento.idAgendamentoEmpresa).set(agendamento)
                     .then(() => {
-                        alert('Agendamento cadastrado com sucesso!')
-                        location.assign(`${setarURL()}/pages/dashboard.html`)
+                        modalSucesso('Agendamento cadastrado com sucesso!', () => {
+                            location.assign(`${setarURL()}/pages/dashboard.html`)
+                        })
+                        
                     })
             })
             .catch(erro => console.log(erro))
@@ -568,7 +668,7 @@ function buscarDadosCooperativa(){
                 </div>
                 <div class='qtd-img-material'> 
                     <img class='img' src='./../images/${InserirImage(chaves[i])}' />
-                    <div class='qtd-material' style='margin-left: 20px'> 
+                    <div class='qtd-material' style=' padding: 10px'> 
                         <label>Quantidade:</label></br>
                         <input type='number' value=${valores[i]} readonly disabled/>
                     </div>
@@ -595,10 +695,8 @@ function buscarDadosCooperativa(){
     }
  }
 
- function deletarAgendamento() {
+ function deletarAgendamento(confirmar) {
     let Ids = JSON.parse(window.sessionStorage.getItem('Ids'))
-
-    confirmar = confirm('Deseja deletar esse agendamento?')
 
     if(confirmar){
         
@@ -607,8 +705,10 @@ function buscarDadosCooperativa(){
         
         Promise.all([promiseCooperativa, promiseEmpresa])
             .then(() => {
-                alert('Agendamento deletado com sucesso!')
-                location.assign(`${setarURL()}/pages/dashboard.html`);
+                modalSucesso('Agendamento deletado com sucesso!', () => {
+                    location.assign(`${setarURL()}/pages/dashboard.html`);
+                })
+                
             })
             .catch(erro => {
                 console.log(erro)
@@ -623,14 +723,18 @@ function buscarDadosCooperativa(){
      let msg = document.querySelector('#msg')
 
      if(nome.value.trim() == '' || email.value.trim() == '' || msg.value.trim() == '' ){
-         alert('Campos obrigatórios!')
+         modalWarning('Campos obrigatórios!', () => {
+             fecharModal()
+         })
          return
      }
 
      firebase.firestore().collection('contatos').add({nome: nome.value, email: email.value, msg: msg.value })
         .then(() => {
          nome.value = ''; email.value = ''; msg.value = '';
-         alert('Obrigado pela mensagem! Entraremos em contato via E-mail.')
+         modalSucesso('Obrigado pela mensagem! Entraremos em contato via E-mail.', () => {
+             fecharModal()
+         })
 
      }).catch(error => {
          console.log(error)
@@ -652,3 +756,23 @@ function buscarDadosCooperativa(){
  function fecharMenuMobile(){
     menuMobile.style.display = 'none'
  }
+
+ function fecharModal(){
+    modal.style.display = 'none'
+    document.body.style.overflow = 'initial' 
+ }
+
+ const modalConfirm = document.querySelector('.modalConfirm')
+
+ function showConfirmModal(){
+     modalConfirm.style.display = 'flex'
+     document.body.style.overflow = 'hidden'
+}
+
+function confirmDeteleteAgendamento(event){
+    let valorBtn = event.target.innerText
+    modalConfirm.style.display = 'none'
+    document.body.style.overflow = 'initial'
+
+     valorBtn === 'Ok' ? deletarAgendamento(true) : deletarAgendamento(false)
+}

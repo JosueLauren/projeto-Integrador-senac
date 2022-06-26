@@ -138,7 +138,7 @@ li.contato a::before{
     border: none;
     cursor: pointer;
     position: relative;
-    left: 88%;
+    left: 84%;
     top: -70px;
     padding: 10px;
     display: none;
@@ -234,6 +234,110 @@ footer p {
     color: #c0c0c0;
 }
 
+.modal{
+    width: 80%;
+    max-width: 300px;
+    height: 160px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 8);
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    left: calc(50% - 150px);
+    top: 10%;
+    text-align: center;
+    padding: 10px;
+    animation: slide-in-top 1s both;
+}
+
+@-webkit-keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+  @keyframes slide-in-top {
+    0% {
+      -webkit-transform: translateY(-1000px);
+              transform: translateY(-1000px);
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+    }
+  }
+
+.modal img {
+    max-width: 48px;
+    max-height: 48px;
+}
+
+.modal button {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+}
+
+.modal p {
+    margin: 5px auto;
+}
+
+.modalConfirm{
+    width: 80%;
+    max-width: 300px;
+    height: 160px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 8);
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    left: calc(50% - 150px);
+    top: 10%;
+    text-align: center;
+    padding: 10px;
+    animation: slide-in-top 1s both;
+    color: var(--color-primary-empresas-00);
+}
+
+.container-btns-modalConfirm{
+    display: flex;
+}
+
+.modalConfirm button {
+    width: 70px;
+    height: 30px;
+    margin: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.modalConfirm p {
+    margin: 5px auto;
+}
+
+.container-btns-modalConfirm .btn-modal-0k {
+    background-color: var(--color-primary-empresas-00);
+    border: 1px solid var(--color-primary-empresas-00);
+    color: #fff;
+}
+
+.container-btns-modalConfirm .btn-modal-cancel {
+    background-color: #fff;
+    border: 1px solid var(--color-primary-empresas-00);
+    color: var(--color-primary-empresas-00);
+}
 
 /* tela tablet/mobile */
 
@@ -254,5 +358,15 @@ footer p {
 
     .menu{
         display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .container-grid, .div-btn-voltar{
+        width: 90% !important;
+        text-align: center;
+    }
+    .container-grid .linha-2 {
+        grid-column: 1/4;
     }
 }

@@ -14,13 +14,15 @@ li.agendamento :before{
     align-items: center;
     justify-content: space-around;
     border-radius: 5px;
-    height: 80px;
-    min-width: 488px;
+    min-height: 80px;
     color: var(--color-primary-contato-00);
     background-color: var(--color-primary-agendamento-03);
     font-weight: 400;
     box-shadow: 0px 3px 1px var(--color-light-01);
     margin: 10px auto;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
 }
 .div-btn-voltar {
     margin-top: 30px;
@@ -53,4 +55,16 @@ li.agendamento :before{
 
 .btn-verMais:hover{
     text-decoration: underline;
+}
+
+
+@media screen and (max-width: 600px) {
+    .agendamento-status{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .div-btn-voltar{
+        width: 100% !important;
+    }
 }

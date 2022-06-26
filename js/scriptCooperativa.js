@@ -11,6 +11,47 @@ function setarURL(){
     return urlSemCaminho
 }
 
+
+/* modais  */
+const modal = document.querySelector('.modal')
+const imgModal = document.querySelector('.img-modal')
+const paragrafoModal = document.querySelector('.p-modal')
+const btnModal = document.querySelector('.btn-modal')
+
+
+function modalSucesso(text, cb){
+  imgModal.src = './../images/ok.png'
+  paragrafoModal.innerText = text
+  paragrafoModal.style.color = '#47BC4C'
+  btnModal.style.backgroundColor = '#47BC4C'
+  modal.style.display = 'flex'
+  document.body.style.overflow = 'hidden'
+  btnModal.onclick = cb
+}
+
+function modalError(text, cb){
+   imgModal.src = './../images/x-circle.png'
+   paragrafoModal.innerText = text
+   paragrafoModal.style.color = 'red'
+   btnModal.style.backgroundColor = 'red'
+   modal.style.display = 'flex'
+   document.body.style.overflow = 'hidden'
+   btnModal.onclick = cb 
+}
+
+function modalWarning(text, cb){
+    imgModal.src = './../images/alert-circle.png'
+    paragrafoModal.innerText = text
+    paragrafoModal.style.color = '#F7D401'
+    btnModal.style.backgroundColor = '#F7D401'
+    modal.style.display = 'flex'
+    document.body.style.overflow = 'hidden'
+    btnModal.onclick = cb
+}
+
+
+
+
 // Função para cadastrar uma nova empresa
 function cadastrarCooperativas(){
     
@@ -26,67 +67,89 @@ function cadastrarCooperativas(){
     let inputConfirmSenha = document.querySelector('#input-confirmaSenha')
 
     if(inputCooperativa.value.trim() == ''){
-        alert('Campo Cooperativa obrigatório')
+        modalWarning('Campo Cooperativa obrigatório', () => {
+            fecharModal()
+        })
         inputCooperativa.focus()
         return
     }
 
     if(inputEndereço.value.trim() == ''){
-        alert('Campo Endereço obrigatório')
+        modalWarning('Campo Endereço obrigatório', () => {
+            fecharModal()
+        })
         inputEndereço.focus()
         return
     }
 
     if(inputUf.value.trim() == ''){
-        alert('Campo Uf obrigatório')
+        modalWarning('Campo Uf obrigatório', () => {
+            fecharModal()
+        })
         inputUf.focus()
         return
     }
 
     if(inputMunicipio.value.trim() == ''){
-        alert('Campo Municipio obrigatório')
+        modalWarning('Campo Municipio obrigatório', () => {
+            fecharModal()
+        })
         inputMunicipio.focus()
         return
     }
 
     if(inputEmail.value.trim() == ''){
-        alert('Campo Email obrigatório')
+        modalWarning('Campo Email obrigatório', () => {
+            fecharModal()
+        })
         inputEmail.focus()
         return
     }
 
     if(inputCnpj.value.trim() == ''){
-        alert('Campo Cnpj obrigatório')
+        modalWarning('Campo Cnpj obrigatório', () => {
+            fecharModal()
+        })
         inputCnpj.focus()
         return
     }
 
     if(inputCep.value.trim() == ''){
-        alert('Campo CEP obrigatório')
+        modalWarning('Campo CEP obrigatório', () => {
+            fecharModal()
+        })
         inputCep.focus()
         return 
     }
 
     if(inputTelefone.value.trim() == ''){
-        alert('Campo Telefone obrigatório')
+        modalWarning('Campo Telefone obrigatório', () => {
+            fecharModal()
+        })
         inputTelefone.focus()
         return
     }
 
     if(inputSenha.value.trim() == ''){
-        alert('Campo Senha obrigatório')
+        modalWarning('Campo Senha obrigatório', () => {
+            fecharModal()
+        })
         inputSenha.focus()
         return
     }
 
     if(inputConfirmSenha.value.trim() == ''){
-        alert('Campo Confirmar senha obrigatório')
+        modalWarning('Campo Confirmar senha obrigatório', () => {
+            fecharModal()
+        })
         inputConfirmSenha.focus()
         return
     }
 
     if(inputSenha.value !== inputConfirmSenha.value ) {
-        alert('As senhas precisam serem iguais')
+        modalWarning('As senhas precisam serem iguais', () => {
+            fecharModal()
+        })
         inputConfirmSenha.focus()
         return 
     }
@@ -108,13 +171,17 @@ function cadastrarCooperativas(){
             .then(() =>{
                     dbFirestore.doc(firebase.auth().currentUser.uid).set(DadosCooperativa)
                     .then(() => {
-                        alert('Cadastrado com sucesso!')
-                        location.assign(`${setarURL()}/pages/dashboardCooperativas.html`);
+                        modalSucesso('Cadastrado com sucesso!', () => {
+                            location.assign(`${setarURL()}/pages/dashboardCooperativas.html`);
+                        })
+                        
                     })
                     .catch(erro => console.log(erro))
                     
                 })
-            .catch(err => alert('Erro ao cadastrar ' + err))
+            .catch(err => modalError('Erro ao cadastrar ' + err, () => {
+                fecharModal()
+            }))
 }
 
 // Função logar e authenticar a Cooperativa
@@ -123,16 +190,22 @@ function authCooperativa(){
     let inputSenha = document.querySelector('#input-auth-senha')
 
     if(inputEmail.value.trim() == '' || inputSenha.value.trim() == ''){
-        alert('Digite seu email e sua senha!')
+        modalWarning('Digite seu email e sua senha!', () => {
+            fecharModal()
+        })
         return
     }
 
     firebase.auth().signInWithEmailAndPassword(inputEmail.value, inputSenha.value)
         .then(result => {
-            alert('Logado com sucesso')
-            location.assign(`${setarURL()}/pages/dashboardCooperativas.html`);
+            modalSucesso('Logado com sucesso', () => {
+                location.assign(`${setarURL()}/pages/dashboardCooperativas.html`);
+            })
+            
         })
-        .catch(error => alert('Login não autorizado') )
+        .catch(error => modalError('Login não autorizado', () => {
+            fecharModal()
+        }))
 }
 
 
@@ -199,68 +272,90 @@ function signout(){
     let inputConfirmSenha = document.querySelector('#input-confirmaSenha')
 
     if(inputCooperativa.value.trim() == ''){
-        alert('Campo Cooperativa obrigatório')
+        modalWarning('Campo Cooperativa obrigatório',() => {
+            fecharModal()
+        })
         inputCooperativa.focus()
         return
     }
 
     if(inputEndereço.value.trim() == ''){
-        alert('Campo Endereço obrigatório')
+        modalWarning('Campo Endereço obrigatório',() => {
+            fecharModal()
+        })
         inputEndereço.focus()
         return
     }
 
     if(inputUf.value.trim() == ''){
-        alert('Campo Uf obrigatório')
+        modalWarning('Campo Uf obrigatório',() => {
+            fecharModal()
+        })
         inputUf.focus()
         return
     }
 
     if(inputMunicipio.value.trim() == ''){
-        alert('Campo Municipio obrigatório')
+        modalWarning('Campo Municipio obrigatório',() => {
+            fecharModal()
+        })
         inputMunicipio.focus()
         return
     }
 
     if(inputEmail.value.trim() == ''){
-        alert('Campo Email obrigatório')
+        modalWarning('Campo Email obrigatório',() => {
+            fecharModal()
+        })
         inputEmail.focus()
         return
     }
 
     if(inputCnpj.value.trim() == ''){
-        alert('Campo Cnpj obrigatório')
+        modalWarning('Campo Cnpj obrigatório',() => {
+            fecharModal()
+        })
         inputCnpj.focus()
         return
     }
 
     if(inputCep.value.trim() == ''){
-        alert('Campo CEP obrigatório')
+        modalWarning('Campo CEP obrigatório',() => {
+            fecharModal()
+        })
         inputCep.focus()
         return 
     }
 
     if(inputTelefone.value.trim() == ''){
-        alert('Campo Telefone obrigatório')
+        modalWarning('Campo Telefone obrigatório',() => {
+            fecharModal()
+        })
         inputTelefone.focus()
         return
     }
 
     if(inputSenha.value.trim() == ''){
-        alert('Campo Senha obrigatório')
+        modalWarning('Campo Senha obrigatório',() => {
+            fecharModal()
+        })
         inputSenha.focus()
         return
     }
 
     if(inputConfirmSenha.value.trim() == ''){
-        alert('Campo Confirmar senha obrigatório')
+        modalWarning('Campo Confirmar senha obrigatóro',() => {
+            fecharModal()
+        })
         inputConfirmSenha.focus()
         return
     }
 
     if(inputSenha.value !== inputConfirmSenha.value ) {
-        alert('As senhas precisam serem iguais')
-        inputConfirmSenha.focus()
+        modalWarning('As senhas precisam serem iguais',() => {
+           fecharModal()
+       })
+       inputConfirmSenha.focus()
         return 
     }
 
@@ -281,8 +376,10 @@ function signout(){
        const user = firebase.auth().currentUser
        user.updatePassword(inputSenha.value)
             .then(() => {
-                alert('Atualizado com sucesso!')
-                location.assign(`${setarURL()}/pages/dashboardCooperativas.html`);
+                modalSucesso('Atualizado com sucesso!', () => {
+                    location.assign(`${setarURL()}/pages/dashboardCooperativas.html`);
+                })
+                
             }).catch(error => {
                 console.log(error)
             })
@@ -426,7 +523,9 @@ function buscarAgendamentos(){
 
     Promise.all([promiseCooperativa, promiseEmpresa])
         .then(() => {
-            alert('Status atualizado com sucesso!')
+            modalSucesso('Status atualizado com sucesso!', () => {
+                fecharModal()
+            })
         })
         .catch(erro => {
             console.log(erro)
@@ -442,4 +541,9 @@ function buscarAgendamentos(){
 
  function fecharMenuMobile(){
     menuMobile.style.display = 'none'
+ }
+
+ function fecharModal(){
+    modal.style.display = 'none'
+    document.body.style.overflow = 'initial' 
  }

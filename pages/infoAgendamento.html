@@ -76,13 +76,25 @@
             </div>
             <div class="btns" style="margin-top: 20px; width: 60%;">
                 <a href="./meusAgendamentos.html"><button class="btn-voltar" type="button">VOLTAR</button></a>
-                <button onclick=" deletarAgendamento()" class="btn-voltar" type="button" style="color: white; background-color: red; border-color: black; margin-left: 5px;">DELETAR</button>
+                <button onclick="showConfirmModal()" class="btn-voltar" type="button" style="color: white; background-color: red; border-color: red; margin-left: 10px;">EXCLUIR</button>
             </div>
      </main>
      <footer>
         <p><img src="./../images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
     </footer>
-
+    <div class="modal">
+        <img class="img-modal" src="" alt="" >
+        <p class="p-modal">sucesso!</p>
+        <button class="btn-modal">Ok</button>
+    </div>
+    <div class="modalConfirm">
+        <img class="img-modal" src="./../images/alert-circle.png" alt="" >
+        <p class="p-modal">Você deseja excluir esse agendamento?</p>
+        <div class="container-btns-modalConfirm">
+            <button onclick="confirmDeteleteAgendamento(event)" class="btn-modal-0k">Ok</button>
+            <button onclick="confirmDeteleteAgendamento(event)" class="btn-modal-cancel">Cancel</button>
+        </div>
+    </div>
      <!-- Recursos do firebase -->
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>

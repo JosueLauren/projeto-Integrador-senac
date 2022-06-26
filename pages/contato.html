@@ -73,6 +73,15 @@
             cursor: pointer;
             margin-right: 5px;
         }
+
+        @media screen and (max-width: 600px) {
+            .container{
+                width: 90%;
+            }
+            .container p {
+                grid-column: 1/3;
+            }
+        }
     </style>
 </head>
 <body>
@@ -125,6 +134,11 @@
      <footer>
         <p><img src="./../images/Union.png" alt="icon-marca"> Portal | <b>Cooper+</b> | Materiais Recicláveis</p>
      </footer>
+     <div class="modal">
+        <img class="img-modal" src="" alt="" >
+        <p class="p-modal">sucesso!</p>
+        <button class="btn-modal">Ok</button>
+    </div>
     <!-- Recursos do firebase -->
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.8.1/firebase-firestore.js"></script>

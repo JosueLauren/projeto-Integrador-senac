@@ -6,7 +6,8 @@ li.agendamento :before{
 }
 
 .materiais-container {
-    width: 50%;
+    width: 90%;
+    max-width: 552px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -122,6 +123,29 @@ button.btn-salvar{
 button.btn-salvar:hover {
     background-color: var(--color-primary-agendamento-01)
 }
+
+@media screen and (max-width: 600px) {
+    .item-material{
+        flex-direction: column;
+    }
+
+    .radio-material, .qtd-img-material{
+        width: 100%;
+    }
+
+    .radio-material{
+        border-radius: 10px 10px  0px 0px;
+    }
+
+    .qtd-img-material{
+        border-radius: 0px 0px 10px 10px;
+        justify-content: flex-end;
+        padding: 10px;
+        margin: 0;
+    }
+}
+
+
 
 
 

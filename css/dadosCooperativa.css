@@ -6,7 +6,8 @@ li.agendamento :before{
 }
 
 .form-cooperativas {
-    width: 60%;
+    width: 90%;
+    max-width: 1444px;
 }
 
 .div-inputs {
@@ -71,5 +72,11 @@ button.btn-confirmar{
 }
 button.btn-confirmar:hover {
     background-color: var(--color-primary-agendamento-01)
+}
+
+@media screen and (max-width: 600px) {
+    .div-inputs p {
+        grid-column: 1/4;
+    }
 }
 
