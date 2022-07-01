@@ -17,6 +17,7 @@ const modal = document.querySelector('.modal')
 const imgModal = document.querySelector('.img-modal')
 const paragrafoModal = document.querySelector('.p-modal')
 const btnModal = document.querySelector('.btn-modal')
+const backModal = document.querySelector('.back-modal')
 
 
 function modalSucesso(text, cb){
@@ -25,6 +26,7 @@ function modalSucesso(text, cb){
   paragrafoModal.style.color = '#47BC4C'
   btnModal.style.backgroundColor = '#47BC4C'
   modal.style.display = 'flex'
+  backModal.style.display = 'block'
   document.body.style.overflow = 'hidden'
   btnModal.onclick = cb
 }
@@ -34,6 +36,7 @@ function modalError(text, cb){
    paragrafoModal.innerText = text
    paragrafoModal.style.color = 'red'
    btnModal.style.backgroundColor = 'red'
+   backModal.style.display = 'block'
    modal.style.display = 'flex'
    document.body.style.overflow = 'hidden'
    btnModal.onclick = cb 
@@ -44,11 +47,11 @@ function modalWarning(text, cb){
     paragrafoModal.innerText = text
     paragrafoModal.style.color = '#F7D401'
     btnModal.style.backgroundColor = '#F7D401'
+    backModal.style.display = 'block'
     modal.style.display = 'flex'
     document.body.style.overflow = 'hidden'
     btnModal.onclick = cb
 }
-
 
 
 
@@ -545,5 +548,6 @@ function buscarAgendamentos(){
 
  function fecharModal(){
     modal.style.display = 'none'
+    backModal.style.display = 'none'
     document.body.style.overflow = 'initial' 
  }

@@ -143,6 +143,10 @@ button.btn-salvar:hover {
         padding: 10px;
         margin: 0;
     }
+
+    .btns {
+        width: 90% !important;
+    }
 }
 
 
